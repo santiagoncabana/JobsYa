@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Empleos - Encuentra tu Trabajo Ideal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- HEADER - Componente reutilizable -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <h2>LogoEmpleos</h2>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="pages/buscar-empleo.html" class="nav-link">Buscar Empleo</a>
+                <a href="pages/buscar-empresas.html" class="nav-link">Empresas</a>
+                <a href="pages/salarios.html" class="nav-link">Salarios</a>
+                <a href="pages/formacion.html" class="nav-link">Formación</a>
+            </div>
+
+            <div class="nav-auth">
+                <a href="pages/login-candidato.html" class="btn-outline">Soy Candidato</a>
+                <a href="pages/login-empresa.html" class="btn-primary">Soy Empresa</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Encuentra el trabajo que mereces</h1>
+            <p>Conectamos el mejor talento con las empresas más innovadoras del mercado</p>
+
+            <div class="search-box">
+                <input type="text" placeholder="¿Qué puesto buscas? Ej: Desarrollador Web">
+                <input type="text" placeholder="¿Dónde? Ej: Madrid, Barcelona">
+                <button class="btn-primary">Buscar Empleos</button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Empleos Activos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Empresas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15,000+</span>
+                    <span class="stat-label">Candidatos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMPRESAS DESTACADAS -->
+    <section class="empresas-destacadas">
+        <div class="container">
+            <h2>Empresas que confían en nosotros</h2>
+            <div class="empresas-grid">
+                <div class="empresa-card">Empresa 1</div>
+                <div class="empresa-card">Empresa 2</div>
+                <div class="empresa-card">Empresa 3</div>
+                <div class="empresa-card">Empresa 4</div>
+                <div class="empresa-card">Empresa 5</div>
+                <div class="empresa-card">Empresa 6</div>
+            </div>
+        </div>
+    </section>
+    <!-- CATEGORÍAS POPULARES -->
+    <section class="categorias">
+        <div class="container">
+            <h2>Categorías Populares</h2>
+            <p class="categorias-subtitle">Explora las áreas profesionales con más oportunidades laborales</p>
+
+            <div class="categorias-grid">
+                <!-- Tecnología -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">💻</span>
+                    <h3>Tecnología</h3>
+                    <div class="categoria-ofertas">215 ofertas activas</div>
+                    <p>Desarrollo, IT, DevOps, Ciberseguridad</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+
+                <!-- Ventas -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">📊</span>
+                    <h3>Ventas</h3>
+                    <div class="categoria-ofertas">142 ofertas activas</div>
+                    <p>Comercial, Business Development, Account Manager</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+
+                <!-- Marketing -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">🎯</span>
+                    <h3>Marketing</h3>
+                    <div class="categoria-ofertas">98 ofertas activas</div>
+                    <p>Digital, Content, SEO, Social Media</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+
+                <!-- Recursos Humanos -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">👥</span>
+                    <h3>Recursos Humanos</h3>
+                    <div class="categoria-ofertas">76 ofertas activas</div>
+                    <p>Recruiting, Talent Acquisition, HRBP</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+
+                <!-- Diseño -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">🎨</span>
+                    <h3>Diseño</h3>
+                    <div class="categoria-ofertas">63 ofertas activas</div>
+                    <p>UX/UI, Product Design, Graphic Design</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+
+                <!-- Finanzas -->
+                <div class="categoria-card">
+                    <span class="categoria-icon">💰</span>
+                    <h3>Finanzas</h3>
+                    <div class="categoria-ofertas">89 ofertas activas</div>
+                    <p>Contabilidad, Análisis, Auditoría</p>
+                    <a href="#" class="categoria-link">Ver empleos →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <!-- CÓMO FUNCIONA -->
+    <section class="como-funciona">
+        <div class="container">
+            <h2>¿Cómo Funciona?</h2>
+            <p class="como-funciona-subtitle">Encuentra tu trabajo ideal en 4 simples pasos</p>
+
+            <div class="pasos-grid">
+                <!-- Paso 1 -->
+                <div class="paso-card">
+                    <div class="paso-number">1</div>
+                    <span class="paso-icon">👤</span>
+                    <h3>Crea tu Perfil</h3>
+                    <p>Regístrate en minutos y completa tu perfil profesional con tu experiencia y habilidades.</p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="paso-card">
+                    <div class="paso-number">2</div>
+                    <span class="paso-icon">🔍</span>
+                    <h3>Busca Empleo</h3>
+                    <p>Filtra entre miles de ofertas por puesto, ubicación, salario y tipo de contrato.</p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="paso-card">
+                    <div class="paso-number">3</div>
+                    <span class="paso-icon">📨</span>
+                    <h3>Postúlate</h3>
+                    <p>Envía tu aplicación con un solo clic. Las empresas verán tu perfil al instante.</p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="paso-card">
+                    <div class="paso-number">4</div>
+                    <span class="paso-icon">💼</span>
+                    <h3>Consigue Trabajo</h3>
+                    <p>Conecta directamente con reclutadores y agenda tus entrevistas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>¿Listo para encontrar tu próximo trabajo?</h2>
+            <p>Únete a miles de profesionales que ya encontraron su oportunidad ideal</p>
+            <div class="cta-buttons">
+                <a href="pages/registro-candidato.html" class="btn-primary">Registrarme Gratis</a>
+                <a href="pages/buscar-empleo.html" class="btn-outline">Ver Empleos Disponibles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - Componente reutilizable -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LogoEmpleos</h3>
+                    <p>Conectando talento con oportunidades</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Para Candidatos</h4>
+                    <a href="pages/buscar-empleo.html">Buscar Empleo</a>
+                    <a href="pages/mi-perfil.html">Mi Perfil</a>
+                    <a href="pages/salarios.html">Guía de Salarios</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Para Empresas</h4>
+                    <a href="pages/publicar-oferta.html">Publicar Oferta</a>
+                    <a href="pages/buscar-empresas.html">Buscar Empresas</a>
+                    <a href="pages/login-empresa.html">Acceso Empresas</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <a href="mailto:info@logoempleos.com">info@logoempleos.com</a>
+                    <a href="tel:+34123456789">+34 123 456 789</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 LogoEmpleos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
