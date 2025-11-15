@@ -1,0 +1,28 @@
+.base {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.primary {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.primary:hover {
+    background-color: #3cb8af;
+}
+
+.secondary {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+.secondary:hover {
+    background-color: #154249;
+}

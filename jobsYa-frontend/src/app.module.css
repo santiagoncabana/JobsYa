@@ -1,0 +1,33 @@
+/* Variables de color de la paleta principal */
+:root {
+    --primary: #1A535C;
+    --accent: #4ECDC4;
+    --background: #F7FFF7;
+    --textDark: #3B3B3B;
+    --success: #FFE66D;
+
+    /* Colores de fondo semitransparentes para tarjetas */
+    --bg-success-light: rgba(255, 230, 109, 0.4);
+    --bg-accent-light: rgba(78, 205, 196, 0.4);
+    /* ... Otras variables ... */
+    --success: #FFE66D;
+    --accent: #4ECDC4;
+
+}
+
+
+
+
+.appWrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+}
+
+.mainContent {
+    flex-grow: 1;
+    /* Ajuste para el header fijo */
+    padding-top: 64px;
+}
