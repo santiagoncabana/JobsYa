@@ -1,6 +1,13 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Table
 from sqlalchemy.orm import relationship
 from backend.database.base import Base
+
+candidato_habilidad = Table(
+    'candidato_habilidad',
+    Base.metadata,
+    Column('id_candidato', Integer, ForeignKey('candidato.id_candidato'), primary_key=True),
+    Column('id_habilidad', Integer, ForeignKey('habilidad.id_habilidad'), primary_key=True)
+)
 
 class Empresa(Base):
     __tablename__ = "empresa"
@@ -30,10 +37,9 @@ class Oferta(Base):
 class Usuario(Base):
     __tablename__ = "usuario"
 
-    id_usuario = Column(Integer, primary_key=True)
-    tipo_usuario = Column(String(20), nullable=False)
+    id_usuario = Column(Integer, primary_key=True, autoincrement=True)
     email = Column(String(120), nullable=False, unique=True)
-    contraseña = Column(String(200), nullable=False)
+    contrasena = Column(String(200), nullable=False)
 
 class Titulo(Base):
     __tablename__ = "titulo"
@@ -67,7 +73,7 @@ class Candidato(Base):
     salario_minimo_pant = Column(Float)
     jornada_disponible = Column(String(50))
 
-    habilidades = relationship("Habilidad", secondary="oferta_requisito")
+    habilidades = relationship("Habilidad", secondary=candidato_habilidad, backref="candidatos")
 
 class Habilidad(Base):
     __tablename__ = "habilidad"
@@ -76,7 +82,6 @@ class Habilidad(Base):
     nivel = Column(Integer)
 
     requisitos = relationship("OfertaRequisito", back_populates="habilidad")
-    titulos = relationship("OfertaTitulo", back_populates="habilidad")
 
 class OfertaRequisito(Base):
     __tablename__ = "oferta_requisito"
