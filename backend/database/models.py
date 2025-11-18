@@ -40,6 +40,8 @@ class Usuario(Base):
     id_usuario = Column(Integer, primary_key=True, autoincrement=True)
     email = Column(String(120), nullable=False, unique=True)
     contrasena = Column(String(200), nullable=False)
+    nombre = Column(String(20), nullable=False)
+    apellido = Column(String(20), nullable=False)
 
 class Titulo(Base):
     __tablename__ = "titulo"

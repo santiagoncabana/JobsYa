@@ -4,6 +4,8 @@ from pydantic import BaseModel
 class ClienteRegister(BaseModel):
     email:str
     contrasena:str
+    nombre:str
+    apellido:str
 
 
 #login

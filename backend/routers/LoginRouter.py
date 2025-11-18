@@ -14,7 +14,7 @@ def registerCliente(usuario: ClienteRegister, db: Session = Depends(get_db)):
     return {"message": "Cliente registrado exitosamente"}
 
 #Login Cliente
-@router.post("/login", tags=["login cliente"])
+@router.post("/login", tags=["login usuario"])
 def loginCliente(usuario: ClienteLogin, db: Session = Depends(get_db)):
     user = autenticacion_usuario(db, usuario.email, usuario.contrasena)
     if user:
