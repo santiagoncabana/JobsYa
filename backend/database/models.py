@@ -19,18 +19,21 @@ class Empresa(Base):
 
 class Oferta(Base):
     __tablename__ = "oferta"
-
+    
     id_oferta = Column(Integer, primary_key=True, index=True)
     id_empresa = Column(Integer, ForeignKey("empresa.id_empresa"), nullable=False)
-
+    
+    # Almacenar el CUIT como dato adicional (NO como foreign key)
+    cuit = Column(String(32), nullable=False)
+    
     nombre_puesto = Column(String(32), nullable=False)
     descripcion_puesto = Column(String(32))
     rango_salarial_min = Column(Float)
     rango_salarial_max = Column(Float)
     jornada = Column(String(32))
-
+    
+    # Relación con Empresa
     empresa = relationship("Empresa", back_populates="ofertas")
-
 
 class Usuario(Base):
     __tablename__ = "usuario"
