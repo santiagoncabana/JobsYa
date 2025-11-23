@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/register.css">
+    <title>Register - JobsYa</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="../home.html" class="logo">Jobs<span>Ya</span></a>
+            <a href="./login.html" class="enlace-login">¿Ya tenés cuenta? Ingresá</a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-registro">
+        <div class="registro-caja">
+            <!-- PANEL INFO -->
+            <div class="registro-info">
+                <h2>Unite a miles de profesionales</h2>
+                <p>Creá tu cuenta gratuita y accedé a las mejores oportunidades laborales de Argentina.</p>
+
+                <ul class="beneficios-lista">
+                    <li><i class="fas fa-check-circle"></i> Acceso a +18.000 ofertas de empleo</li>
+                    <li><i class="fas fa-check-circle"></i> CV visible para empresas</li>
+                    <li><i class="fas fa-check-circle"></i> Postulación con un solo clic</li>
+                    <li><i class="fas fa-check-circle"></i> Seguimiento de tus postulaciones</li>
+                </ul>
+            </div>
+
+            <!-- FORMULARIO -->
+            <div class="registro-formulario">
+                <h1>Crear cuenta</h1>
+                <p class="registro-subtitulo">Completá tus datos para comenzar</p>
+
+                <!-- SELECTOR TIPO USUARIO -->
+                <div class="selector-tipo">
+                    <div class="tipo-opcion activo">
+                        <i class="fas fa-user"></i>
+                        <span>Busco empleo</span>
+                    </div>
+                    <div class="tipo-opcion">
+                        <i class="fas fa-building"></i>
+                        <span>Soy empresa</span>
+                    </div>
+                </div>
+
+                <form>
+                    <!-- NOMBRE Y APELLIDO -->
+                    <div class="campo-fila">
+                        <div class="campo-grupo">
+                            <label for="nombre">Nombre</label>
+                            <div class="campo-icono">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nombre" class="campo-input" placeholder="Tu nombre">
+                            </div>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="apellido">Apellido</label>
+                            <div class="campo-icono">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="apellido" class="campo-input" placeholder="Tu apellido">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="campo-grupo">
+                        <label for="email">Correo electrónico</label>
+                        <div class="campo-icono">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" class="campo-input" placeholder="ejemplo@correo.com">
+                        </div>
+                    </div>
+
+                    <!-- CONTRASEÑA -->
+                    <div class="campo-grupo">
+                        <label for="contrasena">Contraseña</label>
+                        <div class="campo-icono">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="contrasena" class="campo-input"
+                                placeholder="Mínimo 8 caracteres">
+                        </div>
+                    </div>
+
+                    <!-- CONFIRMAR CONTRASEÑA -->
+                    <div class="campo-grupo">
+                        <label for="confirmar-contrasena">Confirmar contraseña</label>
+                        <div class="campo-icono">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmar-contrasena" class="campo-input"
+                                placeholder="Repetí tu contraseña">
+                        </div>
+                    </div>
+
+                    <!-- TERMINOS -->
+                    <div class="campo-checkbox">
+                        <input type="checkbox" id="terminos">
+                        <label for="terminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a
+                                href="#">Política de
+                                Privacidad</a></label>
+                    </div>
+
+                    <!-- BOTON REGISTRO -->
+                    <button type="submit" class="boton-registro">Crear mi cuenta</button>
+                </form>
+
+                <!-- SEPARADOR -->
+                <div class="separador">
+                    <span>o registrate con</span>
+                </div>
+
+                <!-- BOTONES SOCIALES -->
+                <div class="botones-sociales">
+                    <button class="boton-social google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button class="boton-social linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                        LinkedIn
+                    </button>
+                </div>
+
+                <!-- ENLACE LOGIN -->
+                <p class="enlace-registro">
+                    ¿Ya tenés una cuenta? <a href="#">Iniciá sesión</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

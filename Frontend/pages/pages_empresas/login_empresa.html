@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/styles-empresa/styles_login.css">
+    <title>Login Empresa - JobsYa</title>
+</head>
+
+<body>
+    <!-- CABECERA -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="../home.html" class="logo">Jobs<span>Ya</span></a>
+            <a href="./register_empresa.html" class="enlace-registro">¿No tenés cuenta? Registrá tu empresa</a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-login">
+        <div class="login-caja">
+            <!-- ICONO -->
+            <div class="login-icono">
+                <i class="fas fa-building"></i>
+            </div>
+
+            <!-- BADGE -->
+            <div class="badge-empresas">
+                <i class="fas fa-briefcase" style="margin-right: 6px;"></i> Portal Empresas
+            </div>
+
+            <h1>Acceso Empresas</h1>
+            <p class="login-subtitulo">Ingresá para gestionar tus ofertas y candidatos</p>
+
+            <form>
+                <!-- EMAIL -->
+                <div class="campo-grupo">
+                    <label for="email">Correo electrónico</label>
+                    <div class="campo-icono">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com">
+                    </div>
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div class="campo-grupo">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="campo-icono">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="contrasena" class="campo-input" placeholder="Tu contraseña">
+                        <button type="button" class="toggle-contrasena">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OPCIONES -->
+                <div class="opciones-login">
+                    <label class="recordarme">
+                        <input type="checkbox">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="olvido-contrasena">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <!-- BOTON LOGIN -->
+                <button type="submit" class="boton-login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Ingresar al panel
+                </button>
+            </form>
+
+            <!-- SEPARADOR -->
+            <div class="separador">
+                <span>o</span>
+            </div>
+
+            <!-- ENLACE REGISTRO -->
+            <p class="enlace-crear-cuenta">
+                ¿No tenés cuenta empresa? <a href="./register_empresa.html">Registrate gratis</a>
+            </p>
+
+            <!-- ENLACE CANDIDATOS -->
+            <div class="enlace-candidatos">
+                <a href="../pages_candidatos/register_candidato.html">
+                    <i class="fas fa-user"></i>
+                    ¿Buscás empleo? Ingresá como candidato
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

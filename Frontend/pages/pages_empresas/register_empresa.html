@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/styles-empresa/styles_register.css">
+    <title>Register Empresa - JobsYa</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="../home.html" class="logo">Jobs<span>Ya</span></a>
+            <a href="./login_empresa.html" class="enlace-login">¿Ya tenés cuenta? Ingresá</a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-registro">
+        <div class="registro-caja">
+            <!-- ICONO -->
+            <div class="registro-icono">
+                <i class="fas fa-building"></i>
+            </div>
+
+            <h1>Registrá tu empresa</h1>
+            <p class="registro-subtitulo">Empezá a publicar ofertas y encontrá el mejor talento</p>
+
+            <!-- BENEFICIOS MINI -->
+            <div class="beneficios-mini">
+                <div class="beneficio-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Publicación gratis</span>
+                </div>
+                <div class="beneficio-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>+1M candidatos</span>
+                </div>
+                <div class="beneficio-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Fácil y rápido</span>
+                </div>
+            </div>
+
+            <form>
+                <!-- NOMBRE EMPRESA -->
+                <div class="campo-grupo">
+                    <label for="nombre">Nombre de la empresa</label>
+                    <div class="campo-icono">
+                        <input type="text" id="nombre" class="campo-input" placeholder="Ej: Mi Empresa S.A.">
+                        <i class="fas fa-building"></i>
+                    </div>
+                </div>
+
+                <!-- CUIT -->
+                <div class="campo-grupo">
+                    <label for="cuit">CUIT</label>
+                    <div class="campo-icono">
+                        <input type="text" id="cuit" class="campo-input" placeholder="Ej: 30-12345678-9">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <p class="campo-ayuda">
+                        <i class="fas fa-info-circle"></i>
+                        Ingresá el CUIT con guiones
+                    </p>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="campo-grupo">
+                    <label for="email">Correo electrónico corporativo</label>
+                    <div class="campo-icono">
+                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div class="campo-grupo">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="campo-icono">
+                        <input type="password" id="contrasena" class="campo-input" placeholder="Mínimo 8 caracteres">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- TERMINOS -->
+                <div class="campo-checkbox">
+                    <input type="checkbox" id="terminos">
+                    <label for="terminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de
+                            Privacidad</a> para empresas</label>
+                </div>
+
+                <!-- BOTON REGISTRO -->
+                <button type="submit" class="boton-registro">
+                    <i class="fas fa-rocket"></i>
+                    Crear cuenta de empresa
+                </button>
+            </form>
+
+            <!-- SEPARADOR -->
+            <div class="separador">
+                <span>o</span>
+            </div>
+
+            <!-- ENLACE LOGIN -->
+            <p class="enlace-cuenta">
+                ¿Ya tenés cuenta empresa? <a href="#">Iniciá sesión</a>
+            </p>
+
+            <!-- ENLACE CANDIDATOS -->
+            <div class="enlace-candidatos">
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    ¿Buscás empleo? Registrate como candidato
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
