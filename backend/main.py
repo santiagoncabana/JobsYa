@@ -17,6 +17,7 @@ from backend.database.database import engine
 from backend.database.base import Base
 from backend.routers.LoginRouter import router as login_router
 from backend.routers import ofertas_router as ofertas_router
+from backend.routers import filtrosbusqueda_router
 
 # Import models so SQLAlchemy knows about them before create_all()
 import backend.database.models  # noqa: F401
@@ -33,6 +34,8 @@ Base.metadata.create_all(bind=engine)
 app.include_router(login_router, prefix="/auth")
 
 app.include_router(ofertas_router.router, prefix="/api")
+
+app.include_router(filtrosbusqueda_router.router, prefix="/api")
 
 
 @app.get("/")

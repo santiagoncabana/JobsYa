@@ -10,4 +10,4 @@ class OfertaBase(BaseModel):
     jornada: str | None = None
     
     class Config:
-        from_atributes=True
+        from_atributes=True 
