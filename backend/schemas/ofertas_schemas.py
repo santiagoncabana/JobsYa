@@ -8,3 +8,6 @@ class OfertaBase(BaseModel):
     rango_salarial_min: float | None = None
     rango_salarial_max: float | None = None
     jornada: str | None = None
+    
+    class Config:
+        from_atributes=True

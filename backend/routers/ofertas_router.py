@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from backend.database.database import get_db
 from sqlalchemy.orm import Session
-from backend.crud.ofertas_crud import OfertaBase, create_oferta
+from backend.crud.ofertas_crud import OfertaBase, create_oferta,obtener_ofertas_empresa,obtener_todas_ofertas
 from backend.schemas.ofertas_schemas import OfertaBase
 from backend.database.models import Oferta
 
@@ -21,3 +21,14 @@ def crear_oferta(cuit: str, oferta_data: OfertaBase, db: Session = Depends(get_d
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al crear oferta: {str(e)}")
+    
+    
+@router.get("/ofertas/")
+def obtener_ofertas(cuit: str, db: Session = Depends(get_db)):
+    ofertas = obtener_ofertas_empresa(db=db, cuit=cuit)
+    return ofertas
+
+@router.get("/ofertas/todas", response_model=list[OfertaBase])
+def todas_ofertas(db: Session = Depends(get_db)):
+    ofertas = obtener_todas_ofertas(db)
+    return ofertas

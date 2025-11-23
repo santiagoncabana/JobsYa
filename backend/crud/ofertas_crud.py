@@ -28,3 +28,11 @@ def create_oferta(db: Session, oferta_data: OfertaBase, cuit: str):
     db.refresh(db_oferta)
     
     return db_oferta
+
+#obtener ofertas de una empresa
+def obtener_ofertas_empresa(db: Session, cuit: str):
+    return db.query(Oferta).all()
+
+#obtener todas las ofertas
+def obtener_todas_ofertas(db: Session):
+    return db.query(Oferta).all()
