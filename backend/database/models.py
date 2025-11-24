@@ -23,7 +23,6 @@ class Oferta(Base):
     id_oferta = Column(Integer, primary_key=True, index=True)
     id_empresa = Column(Integer, ForeignKey("empresa.id_empresa"), nullable=False)
     
-    # Almacenar el CUIT como dato adicional (NO como foreign key)
     cuit = Column(String(32), nullable=False)
     
     nombre_puesto = Column(String(32), nullable=False)
@@ -34,26 +33,23 @@ class Oferta(Base):
     
     # Relación con Empresa
     empresa = relationship("Empresa", back_populates="ofertas")
+    formulario = relationship("Formulario", back_populates="oferta")
     
 class Formulario(Base):
-    tablename = "formulario"
+    __tablename__ = "formulario"
 
     id_formulario = Column(Integer, primary_key=True, autoincrement=True)
     id_oferta = Column(Integer, ForeignKey("oferta.id_oferta"), nullable=False)
-    id_usuario = Column(Integer, ForeignKey("usuario.id_usuario"), nullable=False)
 
     nombre = Column(String(150), nullable=False)
     email = Column(String(120), nullable=False)
     telefono = Column(String(30), nullable=False)
     salario_minimo = Column(Float, nullable=False)
     jornada_disponible = Column(String(50), nullable=False)
-
     titulos = Column(String(500))
-
     habilidades = Column(String(1000))
 
     oferta = relationship("Oferta", backref="postulaciones")
-    usuario = relationship("Usuario", backref="postulaciones")
     
 
 class Usuario(Base):

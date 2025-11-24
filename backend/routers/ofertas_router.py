@@ -1,13 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from backend.database.database import get_db
 from sqlalchemy.orm import Session
-from backend.crud.ofertas_crud import OfertaBase, create_oferta,obtener_postulaciones_por_oferta,obtener_todas_ofertas
+from backend.crud.ofertas_crud import create_oferta,obtener_postulaciones_por_oferta,obtener_todas_ofertas, obtener_ofertas_por_empresa, obtener_postulaciones_por_empresa
 from backend.schemas.ofertas_schemas import OfertaBase
 from backend.database.models import Oferta
 from backend.schemas.ofertas_schemas import FormularioCreate, FormularioResponse
 from backend.crud.ofertas_crud import (
     crear_postulacion,
-    obtener_postulaciones_por_empresa,
     obtener_postulaciones_por_oferta
 )
 import json
@@ -32,7 +31,7 @@ def crear_oferta(cuit: str, oferta_data: OfertaBase, db: Session = Depends(get_d
     
 @router.get("/ofertas/")
 def obtener_ofertas(cuit: str, db: Session = Depends(get_db)):
-    ofertas = obtener_postulaciones_por_oferta(db=db, cuit=cuit)
+    ofertas = obtener_ofertas_por_empresa(db=db, cuit=cuit)
     return ofertas
 
 @router.get("/ofertas/todas", response_model=list[OfertaBase])
@@ -40,16 +39,17 @@ def todas_ofertas(db: Session = Depends(get_db)):
     ofertas = obtener_todas_ofertas(db)
     return ofertas
 
-
-router = APIRouter()
-
-@router.post("/postulacion/crear", response_model=dict)
+@router.post("/postulacion/oferta/{id_oferta}")
 def crear_postulacion_endpoint(
+    id_oferta: int,
     formulario: FormularioCreate,
-    db: Session = Depends(get_db),
-    id_usuario: int = 1  # TODO: Obtener del token de autenticación
+    db: Session = Depends(get_db)
 ):
-    nueva_postulacion = crear_postulacion(db, formulario, id_usuario)
+    nueva_postulacion = crear_postulacion(
+        db=db,
+        id_oferta=id_oferta,
+        formulario=formulario
+    )
     
     if not nueva_postulacion:
         raise HTTPException(status_code=404, detail="Oferta no encontrada")
@@ -59,46 +59,53 @@ def crear_postulacion_endpoint(
         "id_formulario": nueva_postulacion.id_formulario
     }
 
-@router.get("/postulaciones/empresa/{cuit}", response_model=list[dict])
-def get_postulaciones_empresa(cuit: str, db: Session = Depends(get_db)):
-    """Obtiene todas las postulaciones de ofertas de una empresa"""
-    postulaciones = obtener_postulaciones_por_empresa(db, cuit)
+@router.get("/postulaciones/empresa/{cuit_empresa}", response_model=list[dict])
+def get_postulaciones_empresa(cuit_empresa: str, db: Session = Depends(get_db)):
+    """
+    Obtiene todas las postulaciones de todas las ofertas de una empresa.
+    El CUIT se envía como parámetro de ruta.
+    """
+    postulaciones = obtener_postulaciones_por_empresa(db, cuit_empresa)
+    
+    if not postulaciones:
+        raise HTTPException(status_code=404, detail="No se encontraron postulaciones para esta empresa")
     
     resultado = []
     for p in postulaciones:
         resultado.append({
             "id_formulario": p.id_formulario,
+            "id_oferta": p.id_oferta,  # ← AGREGADO
             "nombre": p.nombre,
             "email": p.email,
             "telefono": p.telefono,
             "salario_minimo": p.salario_minimo,
             "jornada_disponible": p.jornada_disponible,
-            "titulos": json.loads(p.titulos),
-            "habilidades": json.loads(p.habilidades),
-            "nombre_puesto": p.oferta.nombre_puesto,
-            "nombre_empresa": p.oferta.empresa.nombre
+            "titulos": json.loads(p.titulos) if isinstance(p.titulos, str) else p.titulos,
+            "habilidades": json.loads(p.habilidades) if isinstance(p.habilidades, str) else p.habilidades,
         })
     
     return resultado
 
+
 @router.get("/postulaciones/oferta/{id_oferta}", response_model=list[dict])
 def get_postulaciones_oferta(id_oferta: int, db: Session = Depends(get_db)):
-    """Obtiene todas las postulaciones de una oferta específica"""
     postulaciones = obtener_postulaciones_por_oferta(db, id_oferta)
+    
+    if not postulaciones:
+        raise HTTPException(status_code=404, detail="No se encontraron postulaciones para esta oferta")
     
     resultado = []
     for p in postulaciones:
         resultado.append({
             "id_formulario": p.id_formulario,
+            "id_oferta": p.id_oferta,
             "nombre": p.nombre,
             "email": p.email,
             "telefono": p.telefono,
             "salario_minimo": p.salario_minimo,
             "jornada_disponible": p.jornada_disponible,
-            "titulos": json.loads(p.titulos),
-            "habilidades": json.loads(p.habilidades),
-            "nombre_puesto": p.oferta.nombre_puesto,
-            "nombre_empresa": p.oferta.empresa.nombre
+            "titulos": json.loads(p.titulos) if isinstance(p.titulos, str) else p.titulos,
+            "habilidades": json.loads(p.habilidades) if isinstance(p.habilidades, str) else p.habilidades,
         })
     
     return resultado

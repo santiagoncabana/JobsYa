@@ -18,7 +18,6 @@ class HabilidadInput(BaseModel):
     nivel: int  # De 1 a 5
 
 class FormularioCreate(BaseModel):
-    id_oferta: int
     nombre: str
     email: EmailStr
     telefono: str
