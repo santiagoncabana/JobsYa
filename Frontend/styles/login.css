@@ -38,19 +38,19 @@ body {
     color: #fbbf24;
 }
 
-.enlace-login {
+.enlace-registro {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s;
 }
 
-.enlace-login:hover {
+.enlace-registro:hover {
     opacity: 0.8;
 }
 
 /* CONTENEDOR PRINCIPAL */
-.contenedor-registro {
+.contenedor-login {
     flex: 1;
     display: flex;
     align-items: center;
@@ -58,109 +58,44 @@ body {
     padding: 40px 20px;
 }
 
-.registro-caja {
+.login-caja {
     width: 100%;
-    max-width: 900px;
+    max-width: 420px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-    display: flex;
-    overflow: hidden;
+    padding: 45px 40px;
 }
 
-/* PANEL IZQUIERDO - INFO */
-.registro-info {
-    flex: 1;
-    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-    padding: 50px 40px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.registro-info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.registro-info p {
-    opacity: 0.9;
-    margin-bottom: 30px;
-    line-height: 1.7;
-}
-
-.beneficios-lista {
-    list-style: none;
-}
-
-.beneficios-lista li {
+/* ICONO USUARIO */
+.login-icono {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    justify-content: center;
+    margin: 0 auto 25px;
 }
 
-.beneficios-lista i {
-    color: #fbbf24;
-    margin-right: 12px;
-    font-size: 1.1rem;
+.login-icono i {
+    font-size: 2.2rem;
+    color: #fff;
 }
 
-/* PANEL DERECHO - FORMULARIO */
-.registro-formulario {
-    flex: 1.2;
-    padding: 50px 40px;
-}
-
-.registro-formulario h1 {
-    font-size: 1.8rem;
+.login-caja h1 {
+    font-size: 1.7rem;
     color: #1e293b;
-    margin-bottom: 8px;
-}
-
-.registro-subtitulo {
-    color: #64748b;
-    margin-bottom: 30px;
-}
-
-/* SELECTOR DE TIPO */
-.selector-tipo {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.tipo-opcion {
-    flex: 1;
-    padding: 15px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    cursor: pointer;
     text-align: center;
-    transition: all 0.3s;
-}
-
-.tipo-opcion:hover {
-    border-color: #2563eb;
-}
-
-.tipo-opcion.activo {
-    border-color: #2563eb;
-    background: #eff6ff;
-}
-
-.tipo-opcion i {
-    font-size: 1.5rem;
-    color: #2563eb;
     margin-bottom: 8px;
-    display: block;
 }
 
-.tipo-opcion span {
-    font-weight: 600;
-    color: #1e293b;
-    font-size: 0.9rem;
+.login-subtitulo {
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
 }
 
 /* CAMPOS DEL FORMULARIO */
@@ -176,9 +111,22 @@ body {
     font-size: 0.9rem;
 }
 
+.campo-icono {
+    position: relative;
+}
+
+.campo-icono i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    transition: color 0.3s;
+}
+
 .campo-input {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px 16px 14px 45px;
     border: 2px solid #e2e8f0;
     border-radius: 10px;
     font-size: 1rem;
@@ -191,69 +139,77 @@ body {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+.campo-input:focus+i,
+.campo-icono:focus-within i {
+    color: #2563eb;
+}
+
 .campo-input::placeholder {
     color: #9ca3af;
 }
 
-.campo-icono {
-    position: relative;
-}
-
-.campo-icono i {
+/* TOGGLE CONTRASEÑA */
+.toggle-contrasena {
     position: absolute;
-    left: 16px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
+    background: none;
+    border: none;
     color: #9ca3af;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
 }
 
-.campo-icono .campo-input {
-    padding-left: 45px;
+.toggle-contrasena:hover {
+    color: #2563eb;
 }
 
-/* FILA DOBLE */
-.campo-fila {
+/* OPCIONES (RECORDAR / OLVIDO) */
+.opciones-login {
     display: flex;
-    gap: 15px;
-}
-
-.campo-fila .campo-grupo {
-    flex: 1;
-}
-
-/* CHECKBOX TERMINOS */
-.campo-checkbox {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.campo-checkbox input {
-    width: 18px;
-    height: 18px;
-    margin-top: 2px;
+.recordarme {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.recordarme input {
+    width: 16px;
+    height: 16px;
     accent-color: #2563eb;
     cursor: pointer;
 }
 
-.campo-checkbox label {
-    font-size: 0.85rem;
+.recordarme span {
+    font-size: 0.9rem;
     color: #64748b;
-    cursor: pointer;
 }
 
-.campo-checkbox a {
+.olvido-contrasena {
     color: #2563eb;
     text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.campo-checkbox a:hover {
+.olvido-contrasena:hover {
+    color: #1d4ed8;
     text-decoration: underline;
 }
 
-/* BOTON REGISTRO */
-.boton-registro {
+/* BOTON LOGIN */
+.boton-login {
     width: 100%;
     padding: 16px;
     background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
@@ -264,18 +220,26 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.boton-registro:hover {
+.boton-login:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+}
+
+.boton-login i {
+    font-size: 1.1rem;
 }
 
 /* SEPARADOR */
 .separador {
     display: flex;
     align-items: center;
-    margin: 25px 0;
+    margin: 28px 0;
 }
 
 .separador::before,
@@ -295,11 +259,12 @@ body {
 /* BOTONES SOCIALES */
 .botones-sociales {
     display: flex;
+    flex-direction: column;
     gap: 12px;
 }
 
 .boton-social {
-    flex: 1;
+    width: 100%;
     padding: 12px;
     border: 2px solid #e2e8f0;
     border-radius: 10px;
@@ -308,8 +273,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    font-size: 0.9rem;
+    gap: 12px;
+    font-size: 0.95rem;
     font-weight: 500;
     color: #374151;
     transition: all 0.3s;
@@ -318,10 +283,11 @@ body {
 .boton-social:hover {
     background: #f8fafc;
     border-color: #cbd5e1;
+    transform: translateY(-1px);
 }
 
 .boton-social i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .boton-social.google i {
@@ -332,44 +298,35 @@ body {
     color: #0077b5;
 }
 
-/* ENLACE LOGIN */
-.enlace-registro {
+/* ENLACE REGISTRO */
+.enlace-crear-cuenta {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 28px;
+    padding-top: 25px;
+    border-top: 1px solid #e2e8f0;
     color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
-.enlace-registro a {
+.enlace-crear-cuenta a {
     color: #2563eb;
     text-decoration: none;
     font-weight: 600;
 }
 
-.enlace-registro a:hover {
+.enlace-crear-cuenta a:hover {
     text-decoration: underline;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-    .registro-caja {
+@media (max-width: 480px) {
+    .login-caja {
+        padding: 35px 25px;
+        margin: 10px;
+    }
+
+    .opciones-login {
         flex-direction: column;
-    }
-
-    .registro-info {
-        padding: 30px;
-    }
-
-    .registro-formulario {
-        padding: 30px;
-    }
-
-    .campo-fila {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .botones-sociales {
-        flex-direction: column;
+        align-items: flex-start;
     }
 }

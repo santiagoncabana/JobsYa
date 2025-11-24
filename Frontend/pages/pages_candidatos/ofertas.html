@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/styles-candidato/ofertas.css">
+    <title>Ofertas</title>
+</head>
+
+<body>
+    <!-- CABECERA -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="#" class="logo">Tu<span>Empleo</span></a>
+            <nav class="navegacion">
+                <a href="#" class="activo">Ofertas</a>
+                <a href="#">Empresas</a>
+                <a href="#">Blog</a>
+                <a href="./register_candidato.html">Ingresar</a>
+                <a href="/Frontend/pages/pages_empresas/register_empresa.html" class="boton-empresa">Soy Empresa</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BUSCADOR -->
+    <section class="buscador-seccion">
+        <div class="buscador-contenedor">
+            <h1 class="buscador-titulo">Encontrá tu próximo empleo</h1>
+            <div class="buscador">
+                <div class="buscador-campo">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Puesto o palabra clave">
+                </div>
+                <div class="buscador-campo">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Ciudad o provincia">
+                </div>
+                <div class="buscador-campo">
+                    <i class="fas fa-briefcase"></i>
+                    <select>
+                        <option>Todas las categorías</option>
+                        <option>Tecnología</option>
+                        <option>Ventas</option>
+                        <option>Administración</option>
+                        <option>Salud</option>
+                    </select>
+                </div>
+                <button class="boton-buscar">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-principal">
+        <!-- FILTROS -->
+        <aside class="filtros-lateral">
+            <div class="filtros-titulo">
+                <span><i class="fas fa-filter"></i> Filtros</span>
+                <a href="#">Limpiar</a>
+            </div>
+
+            <div class="filtro-grupo">
+                <h4>Modalidad</h4>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="presencial">
+                    <label for="presencial">Presencial</label>
+                    <span>(2.450)</span>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="remoto">
+                    <label for="remoto">Remoto</label>
+                    <span>(890)</span>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="hibrido">
+                    <label for="hibrido">Híbrido</label>
+                    <span>(650)</span>
+                </div>
+            </div>
+
+            <div class="filtro-grupo">
+                <h4>Tipo de jornada</h4>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="fulltime">
+                    <label for="fulltime">Tiempo completo</label>
+                    <span>(3.200)</span>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="parttime">
+                    <label for="parttime">Medio tiempo</label>
+                    <span>(580)</span>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="checkbox" id="freelance">
+                    <label for="freelance">Freelance</label>
+                    <span>(210)</span>
+                </div>
+            </div>
+
+            <div class="filtro-grupo">
+                <h4>Rango salarial</h4>
+                <div class="filtro-rango">
+                    <input type="number" placeholder="Mínimo">
+                    <input type="number" placeholder="Máximo">
+                </div>
+            </div>
+
+            <div class="filtro-grupo">
+                <h4>Fecha de publicación</h4>
+                <div class="filtro-opcion">
+                    <input type="radio" name="fecha" id="hoy">
+                    <label for="hoy">Hoy</label>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="radio" name="fecha" id="semana">
+                    <label for="semana">Última semana</label>
+                </div>
+                <div class="filtro-opcion">
+                    <input type="radio" name="fecha" id="mes">
+                    <label for="mes">Último mes</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- OFERTAS -->
+        <section class="ofertas-seccion">
+            <div class="ofertas-cabecera">
+                <p class="ofertas-cantidad"><strong>3.990</strong> ofertas encontradas</p>
+                <div class="ofertas-ordenar">
+                    <label>Ordenar por:</label>
+                    <select>
+                        <option>Más recientes</option>
+                        <option>Mayor salario</option>
+                        <option>Relevancia</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR OFERTAS (se llena con JS) -->
+            <div id="contenedor-ofertas">
+                <!-- Estado de carga -->
+                <div class="cargando" id="cargando">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando ofertas...</p>
+                </div>
+
+                <!-- Estado vacío (oculto por defecto) -->
+                <div class="estado-vacio" id="estado-vacio" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <p>No se encontraron ofertas con esos filtros</p>
+                    <button onclick="limpiarFiltros()">Limpiar filtros</button>
+                </div>
+
+                <!-- Estado error (oculto por defecto) -->
+                <div class="estado-error" id="estado-error" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Error al cargar las ofertas</p>
+                    <button onclick="cargarOfertas()">Reintentar</button>
+                </div>
+
+                <!-- Acá se insertan las ofertas dinámicamente -->
+                <div id="lista-ofertas"></div>
+            </div>
+
+            <!-- PAGINACION -->
+            <div class="paginacion" id="paginacion"></div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABECERA */
+.cabecera {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+}
+
+.cabecera-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #fef3c7;
+}
+
+.enlace-login {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.enlace-login:hover {
+    opacity: 0.8;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-registro {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.registro-caja {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    padding: 45px 40px;
+}
+
+/* ICONO EMPRESA */
+.registro-icono {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.registro-icono i {
+    font-size: 2.2rem;
+    color: #fff;
+}
+
+.registro-caja h1 {
+    font-size: 1.7rem;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.registro-subtitulo {
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* BENEFICIOS MINI */
+.beneficios-mini {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.beneficio-item i {
+    color: #22c55e;
+    font-size: 0.9rem;
+}
+
+/* CAMPOS DEL FORMULARIO */
+.campo-grupo {
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.campo-icono {
+    position: relative;
+}
+
+.campo-icono i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    transition: color 0.3s;
+}
+
+.campo-input {
+    width: 100%;
+    padding: 14px 16px 14px 45px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+.campo-input:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+.campo-icono:focus-within i {
+    color: #f97316;
+}
+
+.campo-input::placeholder {
+    color: #9ca3af;
+}
+
+/* AYUDA CUIT */
+.campo-ayuda {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.campo-ayuda i {
+    font-size: 0.75rem;
+}
+
+/* CHECKBOX TERMINOS */
+.campo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.campo-checkbox input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: #f97316;
+    cursor: pointer;
+}
+
+.campo-checkbox label {
+    font-size: 0.85rem;
+    color: #64748b;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.campo-checkbox a {
+    color: #f97316;
+    text-decoration: none;
+}
+
+.campo-checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* BOTON REGISTRO */
+.boton-registro {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.boton-registro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.boton-registro i {
+    font-size: 1.1rem;
+}
+
+/* SEPARADOR */
+.separador {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.separador::before,
+.separador::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.separador span {
+    padding: 0 15px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* ENLACE LOGIN */
+.enlace-cuenta {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.enlace-cuenta a {
+    color: #f97316;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.enlace-cuenta a:hover {
+    text-decoration: underline;
+}
+
+/* ENLACE CANDIDATOS */
+.enlace-candidatos {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.enlace-candidatos a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.enlace-candidatos a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .registro-caja {
+        padding: 35px 25px;
+        margin: 10px;
+    }
+
+    .beneficios-mini {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}

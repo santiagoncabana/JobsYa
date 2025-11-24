@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/login.css">
+    <title>Login - JobsYa</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="./home.html" class="logo">Tu<span>Empleo</span></a>
+            <a href="./register.html" class="enlace-registro">¿No tenés cuenta? Registrate</a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-login">
+        <div class="login-caja">
+            <!-- ICONO -->
+            <div class="login-icono">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <h1>¡Bienvenido!</h1>
+            <p class="login-subtitulo">Ingresá a tu cuenta para continuar</p>
+
+            <form>
+                <!-- EMAIL -->
+                <div class="campo-grupo">
+                    <label for="email">Correo electrónico</label>
+                    <div class="campo-icono">
+                        <input type="email" id="email" class="campo-input" placeholder="ejemplo@correo.com">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div class="campo-grupo">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="campo-icono">
+                        <input type="password" id="contrasena" class="campo-input" placeholder="Tu contraseña">
+                        <i class="fas fa-lock"></i>
+                        <button type="button" class="toggle-contrasena">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OPCIONES -->
+                <div class="opciones-login">
+                    <label class="recordarme">
+                        <input type="checkbox">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="olvido-contrasena">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <!-- BOTON LOGIN -->
+                <button type="submit" class="boton-login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <!-- SEPARADOR -->
+            <div class="separador">
+                <span>o ingresá con</span>
+            </div>
+
+            <!-- BOTONES SOCIALES -->
+            <div class="botones-sociales">
+                <button class="boton-social google">
+                    <i class="fab fa-google"></i>
+                    Continuar con Google
+                </button>
+                <button class="boton-social linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                    Continuar con LinkedIn
+                </button>
+            </div>
+
+            <!-- ENLACE REGISTRO -->
+            <p class="enlace-crear-cuenta">
+                ¿No tenés una cuenta? <a href="#">Crear cuenta gratis</a>
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>
