@@ -3,7 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from .base import Base
 
-DATABASE_URL = "mysql+pymysql://root@localhost/jobsya"
+# DATABASE_URL = "mysql+pymysql://root@localhost/jobsya"
+DATABASE_URL = "postgresql://postgres:1234@localhost:5432/JobsYa"
 
 # Engine correcto
 engine = create_engine(DATABASE_URL)

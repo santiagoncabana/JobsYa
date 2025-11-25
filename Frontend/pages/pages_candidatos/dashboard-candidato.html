@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend/styles/styles-candidato/dashboard-candidato.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-contenido">
+            <a href="#" class="logo">Jobs<span>Ya</span></a>
+
+            <div class="nav-menu">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-search"></i>
+                    Buscar empleos
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    Mis postulaciones
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    Mi perfil
+                </a>
+            </div>
+
+            <div class="nav-usuario">
+                <div class="usuario-info">
+                    <div class="usuario-avatar">JD</div>
+                    <span id="nombreUsuario">Juan Díaz</span>
+                </div>
+                <button class="btn-logout" id="btnLogout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="contenedor-principal">
+
+        <!-- BANNER BIENVENIDA -->
+        <div class="banner-bienvenida">
+            <h1>¡Bienvenido, Juan! 👋</h1>
+            <p>Encuentra tu próximo empleo ideal entre miles de oportunidades</p>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="seccion-buscador">
+            <h2 class="buscador-titulo">
+                <i class="fas fa-search"></i>
+                Buscar ofertas laborales
+            </h2>
+            <form class="buscador-formulario">
+                <input type="text" class="buscador-input" placeholder="Título del puesto, empresa o palabra clave..."
+                    id="inputBusqueda">
+                <select class="buscador-filtro" id="filtroUbicacion">
+                    <option value="">Todas las ubicaciones</option>
+                    <option value="CABA">CABA</option>
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Remoto">Remoto</option>
+                </select>
+                <select class="buscador-filtro" id="filtroJornada">
+                    <option value="">Tipo de jornada</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Remoto">Remoto</option>
+                </select>
+                <button type="submit" class="btn-buscar">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </form>
+        </div>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="seccion-estadisticas">
+            <div class="stat-card">
+                <div class="stat-icono azul">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="totalPostulaciones">12</h3>
+                    <p>Postulaciones enviadas</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icono verde">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="enRevision">3</h3>
+                    <p>En revisión</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icono naranja">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="perfilCompletado">85%</h3>
+                    <p>Perfil completado</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OFERTAS RECOMENDADAS -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span><i class="fas fa-briefcase"></i> Ofertas recomendadas para ti</span>
+                <a href="#" class="ver-todas">Ver todas →</a>
+            </div>
+
+            <div class="ofertas-grid" id="ofertasGrid">
+                <!-- Ejemplo de oferta -->
+                <div class="oferta-card">
+                    <p class="oferta-empresa">MercadoLibre</p>
+                    <h3 class="oferta-titulo">Desarrollador Frontend</h3>
+                    <div class="oferta-detalles">
+                        <span class="oferta-detalle">
+                            <i class="fas fa-map-marker-alt"></i>
+                            CABA
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-clock"></i>
+                            Full-time
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-calendar"></i>
+                            Hace 2 días
+                        </span>
+                    </div>
+                    <p class="oferta-salario">$500.000 - $700.000</p>
+                    <button class="btn-postular">Postularme</button>
+                </div>
+
+                <div class="oferta-card">
+                    <p class="oferta-empresa">Globant</p>
+                    <h3 class="oferta-titulo">UX/UI Designer</h3>
+                    <div class="oferta-detalles">
+                        <span class="oferta-detalle">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Remoto
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-clock"></i>
+                            Full-time
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-calendar"></i>
+                            Hace 1 día
+                        </span>
+                    </div>
+                    <p class="oferta-salario">$450.000 - $600.000</p>
+                    <button class="btn-postular">Postularme</button>
+                </div>
+
+                <div class="oferta-card">
+                    <p class="oferta-empresa">Despegar</p>
+                    <h3 class="oferta-titulo">Project Manager</h3>
+                    <div class="oferta-detalles">
+                        <span class="oferta-detalle">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Buenos Aires
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-clock"></i>
+                            Full-time
+                        </span>
+                        <span class="oferta-detalle">
+                            <i class="fas fa-calendar"></i>
+                            Hace 3 días
+                        </span>
+                    </div>
+                    <p class="oferta-salario">$600.000 - $800.000</p>
+                    <button class="btn-postular">Postularme</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIS ÚLTIMAS POSTULACIONES -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span><i class="fas fa-list"></i> Mis últimas postulaciones</span>
+                <a href="#" class="ver-todas">Ver todas →</a>
+            </div>
+
+            <div id="postulacionesLista">
+                <div class="postulacion-item">
+                    <div class="postulacion-info">
+                        <h4>Desarrollador Backend</h4>
+                        <p>MercadoLibre • Hace 2 días</p>
+                    </div>
+                    <span class="badge revision">⏳ En revisión</span>
+                </div>
+
+                <div class="postulacion-item">
+                    <div class="postulacion-info">
+                        <h4>QA Tester</h4>
+                        <p>Globant • Hace 5 días</p>
+                    </div>
+                    <span class="badge preseleccionado">✅ Preseleccionado</span>
+                </div>
+
+                <div class="postulacion-item">
+                    <div class="postulacion-info">
+                        <h4>Full Stack Developer</h4>
+                        <p>Despegar • Hace 1 semana</p>
+                    </div>
+                    <span class="badge revision">⏳ En revisión</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
