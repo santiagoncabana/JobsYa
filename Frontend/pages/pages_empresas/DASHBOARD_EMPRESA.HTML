@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Empresa | JobsYa</title>
+    <!-- ENLACE AL ARCHIVO CSS EXTERNO: ¡Asegúrese de que este archivo exista en la misma carpeta! -->
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
+    <!-- Incluye Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- 1. NAVBAR -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="#" class="logo">Jobs<span>Ya</span> Empresa</a>
+            <nav class="navegacion">
+                <!-- Enlaces a las futuras páginas del proyecto -->
+                <a href="DASHBOARD_EMPRESA.HTML">Dashboard</a>
+                <a href="PUBLICAR_OFERTA.HTML">Publicar Oferta</a>
+                <a href="TODAS_POSTULACIONES.HTML">Todas las Postulaciones</a>
+                <a href="#" class="boton-empresa">Mi Perfil</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. BANNER DE BIENVENIDA -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Bienvenido/a de vuelta, [Nombre Empresa]!</h1>
+            <p>Aquí tienes un resumen rápido de la actividad de tus ofertas de empleo en JobsYa.</p>
+        </div>
+    </section>
+
+    <!-- Contenedor principal que centra el contenido y se superpone al banner -->
+    <div class="dashboard-contenedor">
+
+        <!-- 3. ESTADÍSTICAS (4 Cards) -->
+        <div class="estadisticas-grid">
+
+            <div class="estadistica-card">
+                <i class="icon fas fa-briefcase"></i>
+                <div class="estadistica-numero">12</div>
+                <div class="estadistica-texto">Ofertas Publicadas</div>
+            </div>
+
+            <div class="estadistica-card" style="border-left-color: #f97316;">
+                <i class="icon fas fa-users" style="color: #2563eb;"></i>
+                <div class="estadistica-numero">85</div>
+                <div class="estadistica-texto">Postulaciones Totales</div>
+            </div>
+
+            <div class="estadistica-card">
+                <i class="icon fas fa-eye"></i>
+                <div class="estadistica-numero">1,540</div>
+                <div class="estadistica-texto">Visitas Último Mes</div>
+            </div>
+
+            <div class="estadistica-card" style="border-left-color: #f97316;">
+                <i class="icon fas fa-clock" style="color: #2563eb;"></i>
+                <div class="estadistica-numero">4</div>
+                <div class="estadistica-texto">Ofertas Pendientes</div>
+            </div>
+
+        </div>
+
+        <!-- 4. SECCIÓN: MIS OFERTAS PUBLICADAS -->
+        <section class="seccion-dashboard">
+            <div class="seccion-header">
+                <h2>Mis Ofertas Publicadas</h2>
+                <a href="#">Ver todas las ofertas <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="lista-tarjetas">
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>Desarrollador Full Stack (React/Node.js)</h3>
+                        <p>Publicada: Hace 3 días | 15 Postulaciones</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <!-- Enlace a la futura página de postulaciones de la oferta -->
+                        <a href="VER_POSTULACIONES_OFERTA.HTML">Ver Postulaciones</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>Especialista en Marketing Digital</h3>
+                        <p>Publicada: Hace 1 semana | 5 Postulaciones</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <a href="VER_POSTULACIONES_OFERTA.HTML">Ver Postulaciones</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>Diseñador UX/UI Senior</h3>
+                        <p>Publicada: Hace 1 mes | 30 Postulaciones</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <a href="VER_POSTULACIONES_OFERTA.HTML">Ver Postulaciones</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. SECCIÓN: POSTULACIONES RECIENTES -->
+        <section class="seccion-dashboard">
+            <div class="seccion-header">
+                <h2>Postulaciones Recientes</h2>
+                <!-- Enlace a la futura página de todas las postulaciones -->
+                <a href="TODAS_POSTULACIONES.HTML">Ver todas las postulaciones <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="lista-tarjetas">
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>María Gómez (ID: AB123)</h3>
+                        <p>Postuló a: Desarrollador Full Stack | Hace 5 horas</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <a href="#">Ver Perfil</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>Juan Pérez (ID: CD456)</h3>
+                        <p>Postuló a: Especialista en Marketing Digital | Hace 1 día</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <a href="#">Ver Perfil</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-item">
+                    <div class="tarjeta-info">
+                        <h3>Carla Ruiz (ID: EF789)</h3>
+                        <p>Postuló a: Diseñador UX/UI Senior | Hace 2 días</p>
+                    </div>
+                    <div class="tarjeta-acciones">
+                        <a href="#">Ver Perfil</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

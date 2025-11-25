@@ -1,0 +1,263 @@
+/* ========================================================================= */
+/* ESTILOS BASE Y TIPOGRAFÍA */
+/* ========================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8fafc;
+    /* Fondo suave para el dashboard */
+}
+
+/* ========================================================================= */
+/* CABECERA (NAVBAR) */
+/* ========================================================================= */
+.cabecera {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecera-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #f97316;
+    /* Color de acento naranja de JobsYa */
+}
+
+.navegacion {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navegacion a:hover {
+    color: #2563eb;
+}
+
+.boton-empresa {
+    background: #f97316;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.boton-empresa:hover {
+    background: #ea580c;
+}
+
+/* ========================================================================= */
+/* BANNER DE BIENVENIDA (HERO) */
+/* ========================================================================= */
+.hero {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    /* Degradado azul */
+    padding: 60px 20px 80px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* Contenedor principal que centra el contenido y superponerse al hero */
+.dashboard-contenedor {
+    max-width: 1200px;
+    margin: -60px auto 40px;
+    /* Margen negativo para solapar con el hero */
+    padding: 0 20px;
+}
+
+/* ========================================================================= */
+/* 3. ESTADÍSTICAS (4 Cards) */
+/* ========================================================================= */
+.estadisticas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.estadistica-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    border-left: 5px solid #2563eb;
+    /* Color de acento por defecto */
+    transition: transform 0.2s;
+}
+
+.estadistica-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.estadistica-card .icon {
+    font-size: 2.5rem;
+    color: #f97316;
+    /* Iconos en naranja */
+    margin-bottom: 10px;
+}
+
+.estadistica-numero {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.estadistica-texto {
+    font-size: 1rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ========================================================================= */
+/* 4 & 5. SECCIONES DE LISTADO */
+/* ========================================================================= */
+.seccion-dashboard {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.seccion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.seccion-header h2 {
+    font-size: 1.5rem;
+    color: #1e293b;
+}
+
+.seccion-header a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.seccion-header a:hover {
+    color: #1e40af;
+}
+
+/* Estilo para las tarjetas de Oferta/Postulación */
+.lista-tarjetas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tarjeta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.tarjeta-item:hover {
+    background-color: #f4f7fa;
+}
+
+.tarjeta-info h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.tarjeta-info p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.tarjeta-acciones a {
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.tarjeta-acciones a:hover {
+    background: #1e40af;
+}
+
+/* ========================================================================= */
+/* RESPONSIVE */
+/* ========================================================================= */
+@media (max-width: 768px) {
+    .cabecera-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navegacion {
+        margin-top: 15px;
+        gap: 15px;
+    }
+
+    .estadisticas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarjeta-acciones {
+        margin-top: 10px;
+    }
+}
