@@ -1,0 +1,66 @@
+/* mis_postulaciones.css */
+
+/* Importar todos los estilos de buscar_empleo si es un CSS module */
+/* @import url("buscar_empleo.css"); */
+
+
+/* Ajuste del contenedor principal (para eliminar el espacio del sidebar) */
+.resultados-contenedor-mis-postulaciones {
+    /* Anula el grid de dos columnas definido en .resultados-contenedor */
+    display: block;
+    /* Si el CSS original no tiene un selector más específico, puede que necesites: */
+    /* width: 100%; */
+}
+
+/* Estilo para el estado de la postulación */
+.estado-postulacion {
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Colores de los estados */
+.estado-postulacion.postulado {
+    background-color: #dbeafe;
+    /* Azul claro */
+    color: #1e40af;
+}
+
+.estado-postulacion.en-revision {
+    background-color: #fef3c7;
+    /* Amarillo claro */
+    color: #b45309;
+}
+
+.estado-postulacion.entrevista {
+    background-color: #e0f2f1;
+    /* Turquesa claro */
+    color: #0d9488;
+}
+
+.estado-postulacion.rechazado {
+    background-color: #fee2e2;
+    /* Rojo claro */
+    color: #ef4444;
+}
+
+.estado-postulacion.contratado {
+    background-color: #d1fae5;
+    /* Verde claro */
+    color: #10b981;
+}
+
+/* Opcional: Ajustar la card para mostrar el estado */
+.postulacion-card {
+    /* Basado en .oferta-card, pero añadimos espacio para el estado */
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    background: white;
+}

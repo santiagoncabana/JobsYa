@@ -2,6 +2,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, Table
 from sqlalchemy.orm import relationship
 from backend.database.base import Base
+from sqlalchemy.dialects.postgresql import JSONB
 
 # Produccion SQL:
 
@@ -14,6 +15,7 @@ class Empresa(Base):
     nombre = Column(String(32), nullable=False)
     cuit = Column(String(32), nullable=False)
 
+    # Relación: 1 Empresa puede tener muchas Ofertas
     ofertas = relationship("Oferta", back_populates="empresa")
 
 
@@ -25,13 +27,16 @@ class Oferta(Base):
     
     cuit = Column(String(32), nullable=False)
     
-    nombre_puesto = Column(String(32), nullable=False)
-    descripcion_puesto = Column(String(32))
+    nombre_puesto = Column(String(255), nullable=False)
+    descripcion_puesto = Column(String(255))
     rango_salarial_min = Column(Float)
     rango_salarial_max = Column(Float)
     jornada = Column(String(32))
+    ubicacion = Column(String(100), nullable=True)
+    requisitos = Column(JSONB, nullable=True)
+    beneficios = Column(JSONB, nullable=True)
     
-    # Relación con Empresa
+    # Relaciones
     empresa = relationship("Empresa", back_populates="ofertas")
     formulario = relationship("Formulario", back_populates="oferta")
     

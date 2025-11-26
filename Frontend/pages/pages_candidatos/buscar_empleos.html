@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/Frontend/styles/styles-candidato/buscar_empleo.css">
+    <title>Buscar Empleos - JobsYa</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-contenido">
+            <a href="./dashboard_candidato.html" class="logo">Jobs<span>Ya</span></a>
+
+            <div class="nav-menu">
+                <a href="./buscar_empleos.html" class="nav-link activo">
+                    <i class="fas fa-search"></i>
+                    Buscar empleos
+                </a>
+                <a href="/Frontend/pages/pages_candidatos/mis-postulaciones.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    Mis postulaciones
+                </a>
+                <a href="./mi_perfil.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    Mi perfil
+                </a>
+            </div>
+
+            <div class="nav-usuario">
+                <div class="usuario-info">
+                    <div class="usuario-avatar" id="usuarioAvatar">U</div>
+                    <span id="nombreUsuario">Usuario</span>
+                </div>
+                <button class="btn-logout" id="btnLogout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contenedor-principal">
+
+        <div class="header-busqueda">
+            <h1><i class="fas fa-search"></i> Buscar Empleos</h1>
+            <p>Encuentra tu próximo trabajo entre miles de oportunidades</p>
+        </div>
+
+        <div class="seccion-buscador">
+            <form class="buscador-form" id="formBusqueda">
+                <div class="buscador-principal">
+                    <div class="input-grupo">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="inputBusqueda"
+                            placeholder="Título del puesto, empresa o palabra clave...">
+                    </div>
+                    <button type="submit" class="btn-buscar">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+
+                <div class="filtros-rapidos">
+                    <select id="filtroUbicacion" class="filtro-select">
+                        <option value="">Todas las ubicaciones</option>
+                        <option value="CABA">CABA</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Rosario">Rosario</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Remoto">Remoto</option>
+                    </select>
+
+                    <select id="filtroJornada" class="filtro-select">
+                        <option value="">Tipo de jornada</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Remoto">Remoto</option>
+                        <option value="Freelance">Freelance</option>
+                    </select>
+
+                    <button type="button" class="btn-filtros-avanzados" id="btnFiltrosAvanzados">
+                        <i class="fas fa-sliders-h"></i> Más filtros
+                    </button>
+
+                    <button type="button" class="btn-limpiar" id="btnLimpiar">
+                        <i class="fas fa-times"></i> Limpiar
+                    </button>
+                </div>
+            </form>
+
+            <div class="filtros-avanzados" id="filtrosAvanzados" style="display: none;">
+                <div class="filtros-grid">
+                    <div class="filtro-grupo">
+                        <label>Rango salarial</label>
+                        <div class="rango-inputs">
+                            <input type="number" id="salarioMin" placeholder="Mínimo" class="input-salario">
+                            <span>-</span>
+                            <input type="number" id="salarioMax" placeholder="Máximo" class="input-salario">
+                        </div>
+                    </div>
+
+                    <div class="filtro-grupo">
+                        <label>Ordenar por</label>
+                        <select id="ordenarPor" class="filtro-select">
+                            <option value="reciente">Más recientes</option>
+                            <option value="salario">Mejor salario</option>
+                            <option value="alfabetico">A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resultados-contenedor">
+
+            <aside class="sidebar-filtros">
+                <div class="filtros-card">
+                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+
+                    <div class="filtro-seccion">
+                        <h4>Empresa</h4>
+                        <select id="filtroEmpresa" class="filtro-select-full">
+                            <option value="">Todas las empresas</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro-seccion">
+                        <h4>Publicación</h4>
+                        <div class="filtro-opciones">
+                            <label class="filtro-radio">
+                                <input type="radio" name="fecha" value="" checked>
+                                <span>Todas</span>
+                            </label>
+                            <label class="filtro-radio">
+                                <input type="radio" name="fecha" value="hoy">
+                                <span>Últimas 24 horas</span>
+                            </label>
+                            <label class="filtro-radio">
+                                <input type="radio" name="fecha" value="semana">
+                                <span>Última semana</span>
+                            </label>
+                            <label class="filtro-radio">
+                                <input type="radio" name="fecha" value="mes">
+                                <span>Último mes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn-aplicar-filtros" id="btnAplicarFiltros">
+                        Aplicar filtros
+                    </button>
+                </div>
+            </aside>
+
+            <div class="ofertas-seccion">
+
+                <div class="resultados-header">
+                    <p class="resultados-contador" id="contadorResultados">
+                        <strong>0</strong> ofertas encontradas
+                    </p>
+                    <div class="vista-toggle">
+                        <button class="btn-vista activo" data-vista="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="btn-vista" data-vista="lista">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="loader" id="loader" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando ofertas...</p>
+                </div>
+
+                <div class="ofertas-grid" id="ofertasGrid">
+                </div>
+
+                <div class="paginacion" id="paginacion" style="display: none;">
+                    <button class="btn-paginacion" id="btnAnterior" disabled>
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <span class="pagina-actual" id="paginaActual">Página 1 de 1</span>
+                    <button class="btn-paginacion" id="btnSiguiente" disabled>
+                        Siguiente <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-overlay" id="modalDetalleOferta" style="display:none;">
+        <div class="modal-detalle-oferta">
+            <button class="modal-cerrar" id="modalCerrarDetalle">×</button>
+
+            <h2 id="modalTitulo"></h2>
+            <h4 id="modalEmpresa"></h4>
+
+            <div class="modal-info-puesto">
+                <p><i class="fas fa-dollar-sign"></i> <strong>Salario:</strong> <span id="modalSalario"></span></p>
+                <p><i class="fas fa-clock"></i> <strong>Jornada:</strong> <span id="modalJornada"></span></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> <span id="modalUbicacion"></span>
+                </p>
+            </div>
+
+            <hr>
+
+            <h3><i class="fas fa-info-circle"></i> Descripción del Puesto</h3>
+            <div id="modalDescripcion" class="modal-descripcion"></div>
+
+            <h3 id="modalRequisitosTitulo" style="display:none;"><i class="fas fa-list-ul"></i> Requisitos</h3>
+            <ul id="modalRequisitos" class="modal-lista"></ul>
+
+            <h3 id="modalBeneficiosTitulo" style="display:none;"><i class="fas fa-gift"></i> Beneficios</h3>
+            <ul id="modalBeneficios" class="modal-lista"></ul>
+
+            <hr>
+
+            <button class="btn-postular-modal" id="modalPostularBoton">
+                <i class="fas fa-paper-plane"></i> Postularme a esta Oferta
+            </button>
+        </div>
+    </div>
+
+
+    <script src="/Frontend/scripts/candidato/buscar_empleo.js"></script>
+</body>
+
+</html>

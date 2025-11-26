@@ -1,3 +1,4 @@
+from typing import Dict, List
 from sqlalchemy.orm import Session
 from backend.schemas.ofertas_schemas import OfertaBase, FormularioCreate
 from backend.database.models import Oferta, Empresa, Formulario
@@ -20,7 +21,11 @@ def create_oferta(db: Session, oferta_data: OfertaBase, cuit: str):
         descripcion_puesto=oferta_data.descripcion_puesto,
         rango_salarial_min=oferta_data.rango_salarial_min,
         rango_salarial_max=oferta_data.rango_salarial_max,
-        jornada=oferta_data.jornada
+        jornada=oferta_data.jornada,
+        ubicacion=oferta_data.ubicacion,
+        requisitos=oferta_data.requisitos,
+        beneficios=oferta_data.beneficios
+
     )
     
     db.add(db_oferta)
@@ -30,7 +35,6 @@ def create_oferta(db: Session, oferta_data: OfertaBase, cuit: str):
     return db_oferta
 
 def crear_postulacion(db: Session, id_oferta: int, formulario: FormularioCreate):
-    # ✅ Ya no recibe id_usuario
     oferta = db.query(Oferta).filter(Oferta.id_oferta == id_oferta).first()
     if not oferta:
         return None
@@ -43,7 +47,7 @@ def crear_postulacion(db: Session, id_oferta: int, formulario: FormularioCreate)
     
     nuevo_formulario = Formulario(
         id_oferta=id_oferta,
-        # ✅ id_usuario ELIMINADO
+        # id_usuario ELIMINADO
         nombre=formulario.nombre,
         email=formulario.email,
         telefono=formulario.telefono,
@@ -74,10 +78,45 @@ def obtener_postulaciones_por_oferta(db: Session, id_oferta: int):
         .filter(Formulario.id_oferta == id_oferta)\
         .all()
 
-
+# -------------------------------------------------------------------------------------------
 #obtener todas las ofertas
-def obtener_todas_ofertas(db: Session):
-    return db.query(Oferta).all()
+# def obtener_todas_ofertas(db: Session):
+#     return db.query(Oferta).all()
+# -------------------------------------------------------------------------------------------
 
 def obtener_ofertas_por_empresa(db: Session, cuit: str):
     return db.query(Oferta).filter(Oferta.cuit == cuit).all()
+
+
+# -------------------------------------------------------------------------------------------
+
+def obtener_todas_ofertas(db: Session) -> List[Dict]:
+    # Paso 1: Obtener TODAS las ofertas de la base de datos
+    ofertas_db = db.query(Oferta).all() 
+    
+    ofertas_procesadas = []
+    
+    for oferta_obj in ofertas_db:
+        # Convertir el objeto de SQLAlchemy a un diccionario para manipularlo
+        oferta_dict = oferta_obj.__dict__.copy()
+        oferta_dict.pop('_sa_instance_state', None)
+        
+        # 🛑 FUNCIÓN CLAVE DE PARSEO 🛑
+        def parsear_campo_jsonb(campo_str):
+            """Convierte la cadena JSONB de la DB a una lista de Python."""
+            valor = oferta_dict.get(campo_str)
+            if isinstance(valor, str):
+                try:
+                    return json.loads(valor)
+                except (json.JSONDecodeError, TypeError):
+                    print(f"Error al parsear campo {campo_str} para oferta {oferta_dict.get('id_oferta')}")
+                    return []
+            return valor if valor is not None else [] 
+
+        oferta_dict['requisitos'] = parsear_campo_jsonb('requisitos')
+        oferta_dict['beneficios'] = parsear_campo_jsonb('beneficios')
+        
+        
+        ofertas_procesadas.append(oferta_dict)
+        
+    return ofertas_procesadas

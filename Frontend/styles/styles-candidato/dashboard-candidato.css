@@ -425,3 +425,378 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+/* --------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Agregar estos estilos a tu archivo dashboard-candidato.css */
+
+/* Modal de postulación */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-postulacion {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #7f8c8d;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.modal-cerrar:hover {
+    color: #2c3e50;
+}
+
+.modal-postulacion h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-postulacion h2 i {
+    color: #3498db;
+}
+
+.modal-postulacion .campo-grupo {
+    margin-bottom: 1.2rem;
+}
+
+.modal-postulacion label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.modal-postulacion input,
+.modal-postulacion select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.modal-postulacion input:focus,
+.modal-postulacion select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Habilidades */
+#habilidadesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.habilidad-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.habilidad-nombre,
+.habilidad-nivel {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-eliminar-habilidad {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar-habilidad:hover {
+    background-color: #c0392b;
+}
+
+.btn-agregar-habilidad {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: 1px dashed #bdc3c7;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btn-agregar-habilidad:hover {
+    background-color: #bdc3c7;
+    border-color: #95a5a6;
+}
+
+/* Botones del modal */
+.modal-botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ecf0f1;
+}
+
+.btn-cancelar {
+    padding: 0.8rem 1.5rem;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #bdc3c7;
+}
+
+.btn-enviar-postulacion {
+    padding: 0.8rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.btn-enviar-postulacion:hover {
+    background-color: #2980b9;
+}
+
+.btn-enviar-postulacion:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.btn-enviar-postulacion i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Notificaciones */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+    min-width: 300px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.notificacion.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.notificacion.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #e74c3c;
+}
+
+.notificacion.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.notificacion i {
+    font-size: 1.3rem;
+}
+
+.notificacion.ocultar {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* Mensajes vacíos y errores */
+.mensaje-vacio,
+.mensaje-error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #7f8c8d;
+}
+
+.mensaje-vacio i,
+.mensaje-error i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.mensaje-error {
+    color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-postulacion {
+        padding: 1.5rem;
+        max-width: 95%;
+    }
+
+    .habilidad-item {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-eliminar-habilidad {
+        justify-self: flex-start;
+        margin-top: 0.5rem;
+    }
+
+    .modal-botones {
+        flex-direction: column;
+    }
+
+    .btn-cancelar,
+    .btn-enviar-postulacion {
+        width: 100%;
+    }
+
+    .notificacion {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+    }
+}

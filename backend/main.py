@@ -18,6 +18,8 @@ from backend.database.base import Base
 from backend.routers.LoginRouter import router as login_router
 from backend.routers import ofertas_router as ofertas_router
 from backend.routers import filtrosbusqueda_router
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Import models so SQLAlchemy knows about them before create_all()
 import backend.database.models  # noqa: F401
@@ -25,6 +27,13 @@ import backend.database.models  # noqa: F401
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas las origins (para desarrollo)
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos (GET, POST, etc.)
+    allow_headers=["*"],  # Permite todos los headers
+)
 
 # Create database tables (safe to call on startup in development)
 Base.metadata.create_all(bind=engine)

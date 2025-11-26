@@ -24,7 +24,12 @@ def registerEmpresa(empresa: CuentaEmpresaRegister, db: Session = Depends(get_db
 def loginCliente(usuario: ClienteLogin, db: Session = Depends(get_db)):
     user = autenticacion_usuario(db, usuario.email, usuario.contrasena)
     if user:
-        return {"message": "Autenticación exitosa", "email": user.email}
+        return {
+            "message": "Autenticación exitosa", 
+            "email": user.email,
+            "nombre": user.nombre,      
+            "apellido": user.apellido   
+        }
     raise HTTPException(status_code=401, detail="Credenciales incorrectas")
 
 @router.post("/login_empresa", tags=["login empresa"])

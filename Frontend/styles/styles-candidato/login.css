@@ -330,3 +330,160 @@ body {
         align-items: flex-start;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Agregar estos estilos a tu archivo login.css existente */
+
+/* Mensajes de error en campos */
+.campo-input.error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+.error-mensaje {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.error-mensaje::before {
+    content: "⚠";
+    font-size: 1rem;
+}
+
+/* Toggle contraseña */
+.toggle-contrasena {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.toggle-contrasena:hover {
+    color: #2c3e50;
+}
+
+.campo-icono {
+    position: relative;
+}
+
+.campo-icono input {
+    padding-right: 40px;
+}
+
+/* Botón deshabilitado */
+.boton-login:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.boton-login i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Notificaciones */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+    min-width: 300px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.notificacion.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.notificacion.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #e74c3c;
+}
+
+.notificacion.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.notificacion i {
+    font-size: 1.3rem;
+}
+
+.notificacion.ocultar {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* Responsive para notificaciones */
+@media (max-width: 768px) {
+    .notificacion {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+    }
+}

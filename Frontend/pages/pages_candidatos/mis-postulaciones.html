@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/Frontend/styles/styles-candidato/buscar_empleo.css">
+    <title>Mis Postulaciones - JobsYa</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-contenido">
+            <a href="./dashboard_candidato.html" class="logo">Jobs<span>Ya</span></a>
+
+            <div class="nav-menu">
+                <a href="./buscar_empleos.html" class="nav-link">
+                    <i class="fas fa-search"></i>
+                    Buscar empleos
+                </a>
+                <a href="./mis_postulaciones.html" class="nav-link activo">
+                    <i class="fas fa-file-alt"></i>
+                    Mis postulaciones
+                </a>
+                <a href="./mi_perfil.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    Mi perfil
+                </a>
+            </div>
+
+            <div class="nav-usuario">
+                <div class="usuario-info">
+                    <div class="usuario-avatar" id="usuarioAvatar">U</div>
+                    <span id="nombreUsuario">Usuario</span>
+                </div>
+                <button class="btn-logout" id="btnLogout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contenedor-principal">
+
+        <div class="header-busqueda">
+            <h1><i class="fas fa-file-alt"></i> Mis Postulaciones</h1>
+            <p>Historial y estado de las ofertas a las que te has postulado.</p>
+        </div>
+
+        <div class="seccion-buscador">
+            <form class="buscador-form" id="formBusquedaPostulaciones">
+                <div class="buscador-principal">
+                    <div class="input-grupo">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="inputBusquedaPostulaciones" placeholder="Buscar por puesto o empresa...">
+                    </div>
+                    <button type="submit" class="btn-buscar">
+                        <i class="fas fa-search"></i> Filtrar
+                    </button>
+                </div>
+
+                <div class="filtros-rapidos">
+                    <select id="filtroEstado" class="filtro-select">
+                        <option value="">Todos los estados</option>
+                        <option value="Postulado">Postulado</option>
+                        <option value="En Revisión">En Revisión</option>
+                        <option value="Entrevista">Entrevista</option>
+                        <option value="Rechazado" style="color: #ef4444;">Rechazado</option>
+                        <option value="Contratado" style="color: #10b981;">Contratado</option>
+                    </select>
+
+                    <select id="filtroFechaPostulacion" class="filtro-select">
+                        <option value="">Fecha de postulación</option>
+                        <option value="reciente">Más reciente</option>
+                        <option value="antigua">Más antigua</option>
+                    </select>
+
+                    <button type="button" class="btn-limpiar" id="btnLimpiarPostulaciones">
+                        <i class="fas fa-times"></i> Limpiar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="resultados-contenedor-mis-postulaciones">
+            <div class="ofertas-seccion">
+                <div class="resultados-header">
+                    <p class="resultados-contador" id="contadorResultadosPostulaciones">
+                        <strong>0</strong> postulaciones encontradas
+                    </p>
+                    <div class="vista-toggle">
+                        <button class="btn-vista activo" data-vista="lista">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="loader" id="loaderPostulaciones" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando postulaciones...</p>
+                </div>
+
+                <div class="ofertas-grid vista-lista" id="postulacionesGrid">
+                </div>
+
+                <div class="paginacion" id="paginacionPostulaciones" style="display: none;">
+                    <button class="btn-paginacion" id="btnAnteriorPostulacion" disabled>
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <span class="pagina-actual" id="paginaActualPostulacion">Página 1 de 1</span>
+                    <button class="btn-paginacion" id="btnSiguientePostulacion" disabled>
+                        Siguiente <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Frontend/scripts/candidato/mis-postulaciones.js"></script>
+</body>
+
+</html>

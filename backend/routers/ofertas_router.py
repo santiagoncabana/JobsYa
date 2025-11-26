@@ -3,8 +3,12 @@ from backend.database.database import get_db
 from sqlalchemy.orm import Session
 from backend.crud.ofertas_crud import create_oferta,obtener_postulaciones_por_oferta,obtener_todas_ofertas, obtener_ofertas_por_empresa, obtener_postulaciones_por_empresa
 from backend.schemas.ofertas_schemas import OfertaBase
+# from backend.schemas.ofertas_schemas import OfertaBase, OfertaDetalle
 from backend.database.models import Oferta
 from backend.schemas.ofertas_schemas import FormularioCreate, FormularioResponse
+from typing import List
+
+
 from backend.crud.ofertas_crud import (
     crear_postulacion,
     obtener_postulaciones_por_oferta
@@ -12,8 +16,9 @@ from backend.crud.ofertas_crud import (
 import json
 
 router = APIRouter()
+# --------------------------------------------------------------------------------------------------------
 
-@router.post("/ofertas/")
+@router.post("/CrearOfertas")
 def crear_oferta(cuit: str, oferta_data: OfertaBase, db: Session = Depends(get_db)):
     try:
         nueva_oferta = create_oferta(db=db, cuit=cuit, oferta_data=oferta_data)
@@ -21,23 +26,39 @@ def crear_oferta(cuit: str, oferta_data: OfertaBase, db: Session = Depends(get_d
             "mensaje": "Oferta creada exitosamente",
             "id_oferta": nueva_oferta.id_oferta,
             "id_empresa": nueva_oferta.id_empresa,
-            "cuit": nueva_oferta.cuit
+            "cuit": nueva_oferta.cuit,
+            "descripcion": nueva_oferta.descripcion_puesto,
+            "requisitos": nueva_oferta.requisitos,
+            "beneficios": nueva_oferta.beneficios,
+
+
         }
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al crear oferta: {str(e)}")
+# --------------------------------------------------------------------------------------------------------
     
+
     
-@router.get("/ofertas/")
+@router.get("/ofertas-por-empresa/")
 def obtener_ofertas(cuit: str, db: Session = Depends(get_db)):
     ofertas = obtener_ofertas_por_empresa(db=db, cuit=cuit)
     return ofertas
+
+
+
+# ------------------------------------------------------------------------------
 
 @router.get("/ofertas/todas", response_model=list[OfertaBase])
 def todas_ofertas(db: Session = Depends(get_db)):
     ofertas = obtener_todas_ofertas(db)
     return ofertas
+
+# --------------------------------------------------------------------------------
+
+
+
 
 @router.post("/postulacion/oferta/{id_oferta}")
 def crear_postulacion_endpoint(
@@ -58,6 +79,9 @@ def crear_postulacion_endpoint(
         "mensaje": "Postulación enviada exitosamente",
         "id_formulario": nueva_postulacion.id_formulario
     }
+
+
+# --------------------------------------------------------------------------------------------------------
 
 @router.get("/postulaciones/empresa/{cuit_empresa}", response_model=list[dict])
 def get_postulaciones_empresa(cuit_empresa: str, db: Session = Depends(get_db)):
@@ -87,6 +111,7 @@ def get_postulaciones_empresa(cuit_empresa: str, db: Session = Depends(get_db)):
     return resultado
 
 
+# --------------------------------------------------------------------------------------------------------
 @router.get("/postulaciones/oferta/{id_oferta}", response_model=list[dict])
 def get_postulaciones_oferta(id_oferta: int, db: Session = Depends(get_db)):
     postulaciones = obtener_postulaciones_por_oferta(db, id_oferta)
