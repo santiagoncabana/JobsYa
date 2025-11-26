@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postulaciones - Oferta | JobsYa</title>
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/ver_postulaciones.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="dashboard_empresa.html" class="logo">Jobs<span>Ya</span></a>
+            <nav class="navegacion">
+                <a href="dashboard_empresa.html">Dashboard</a>
+                <a href="todas_postulaciones.html">Postulaciones</a>
+                <a href="publicar_oferta.html" class="boton-empresa">Publicar Oferta</a>
+                <a href="#">Mi Cuenta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div>
+            <h1>Postulaciones Recibidas</h1>
+            <p>Gestiona los candidatos para tu oferta de trabajo</p>
+        </div>
+    </section>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="dashboard-contenedor">
+        <!-- HEADER DE LA OFERTA -->
+        <div class="seccion-dashboard oferta-header">
+            <div class="oferta-info">
+                <h2>Desarrollador Frontend Senior</h2>
+                <div class="oferta-detalles">
+                    <span class="badge">Remoto</span>
+                    <span class="badge">Tiempo Completo</span>
+                    <span class="badge">Senior</span>
+                    <span class="fecha">Publicada: 15 Nov 2024</span>
+                </div>
+                <p class="empresa-info">Tech Solutions Inc. • Buenos Aires, Argentina</p>
+            </div>
+            <div class="oferta-stats">
+                <div class="stat">
+                    <span class="stat-number">24</span>
+                    <span class="stat-label">Total Postulaciones</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Por Revisar</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTROS Y BÚSQUEDA -->
+        <div class="seccion-dashboard">
+            <div class="filtros-header">
+                <div class="busqueda-grupo">
+                    <input type="text" placeholder="Buscar candidato..." class="busqueda-input">
+                    <button class="btn btn-primary">Buscar</button>
+                </div>
+                <div class="filtros-grupo">
+                    <select class="filtro-select">
+                        <option value="">Todos los estados</option>
+                        <option value="revision">Por Revisar</option>
+                        <option value="entrevista">Entrevista</option>
+                        <option value="rechazado">Rechazado</option>
+                        <option value="contratado">Contratado</option>
+                    </select>
+                    <select class="filtro-select">
+                        <option value="">Ordenar por</option>
+                        <option value="reciente">Más reciente</option>
+                        <option value="antiguo">Más antiguo</option>
+                        <option value="nombre">Nombre A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLA/LISTA DE POSTULACIONES -->
+        <div class="seccion-dashboard">
+            <div class="seccion-header">
+                <h2>Lista de Postulantes</h2>
+                <span class="contador">12 postulaciones</span>
+            </div>
+
+            <div class="tabla-contenedor">
+                <table class="tabla-postulaciones">
+                    <thead>
+                        <tr>
+                            <th>Candidato</th>
+                            <th>Fecha Postulación</th>
+                            <th>Estado</th>
+                            <th>Experiencia</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Postulación 1 -->
+                        <tr>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">MA</div>
+                                <div>
+                                    <div class="candidato-nombre">María González</div>
+                                    <div class="candidato-email">maria.gonzalez@email.com</div>
+                                </div>
+                            </td>
+                            <td>20 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-revision">Por Revisar</span>
+                            </td>
+                            <td>5 años</td>
+                            <td>
+                                <button class="btn-accion btn-ver" onclick="abrirModal('modal-perfil-1')">Ver
+                                    CV</button>
+                                <button class="btn-accion btn-contactar">Contactar</button>
+                            </td>
+                        </tr>
+
+                        <!-- Postulación 2 -->
+                        <tr>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">CP</div>
+                                <div>
+                                    <div class="candidato-nombre">Carlos Pérez</div>
+                                    <div class="candidato-email">carlos.perez@email.com</div>
+                                </div>
+                            </td>
+                            <td>19 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-entrevista">Entrevista</span>
+                            </td>
+                            <td>7 años</td>
+                            <td>
+                                <button class="btn-accion btn-ver" onclick="abrirModal('modal-perfil-2')">Ver
+                                    CV</button>
+                                <button class="btn-accion btn-contactar">Contactar</button>
+                            </td>
+                        </tr>
+
+                        <!-- Postulación 3 -->
+                        <tr>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">LM</div>
+                                <div>
+                                    <div class="candidato-nombre">Laura Martínez</div>
+                                    <div class="candidato-email">laura.m@email.com</div>
+                                </div>
+                            </td>
+                            <td>18 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-rechazado">Rechazado</span>
+                            </td>
+                            <td>3 años</td>
+                            <td>
+                                <button class="btn-accion btn-ver" onclick="abrirModal('modal-perfil-3')">Ver
+                                    CV</button>
+                                <button class="btn-accion btn-contactar">Contactar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PAGINACIÓN -->
+            <div class="paginacion">
+                <button class="btn-pagina">Anterior</button>
+                <span class="pagina-activa">1</span>
+                <button class="btn-pagina">2</button>
+                <button class="btn-pagina">3</button>
+                <button class="btn-pagina">Siguiente</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL PERFIL DEL CANDIDATO -->
+    <div id="modal-perfil-1" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h2>Perfil del Candidato</h2>
+                <span class="modal-cerrar" onclick="cerrarModal('modal-perfil-1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Contenido del perfil del candidato -->
+                <div class="perfil-header">
+                    <div class="candidato-avatar-large">MA</div>
+                    <div class="perfil-info">
+                        <h3>María González</h3>
+                        <p>Desarrolladora Frontend Senior</p>
+                        <p class="perfil-contacto">maria.gonzalez@email.com • +54 11 1234-5678</p>
+                    </div>
+                </div>
+
+                <div class="perfil-seccion">
+                    <h4>Experiencia Laboral</h4>
+                    <div class="experiencia-item">
+                        <h5>Senior Frontend Developer - TechCompany</h5>
+                        <span class="fecha">2020 - Presente</span>
+                        <p>Desarrollo de aplicaciones web con React, TypeScript y Node.js</p>
+                    </div>
+                    <div class="experiencia-item">
+                        <h5>Frontend Developer - StartupXYZ</h5>
+                        <span class="fecha">2018 - 2020</span>
+                        <p>Desarrollo de interfaces de usuario y componentes reutilizables</p>
+                    </div>
+                </div>
+
+                <div class="perfil-seccion">
+                    <h4>Habilidades Técnicas</h4>
+                    <div class="habilidades-lista">
+                        <span class="habilidad-badge">React</span>
+                        <span class="habilidad-badge">TypeScript</span>
+                        <span class="habilidad-badge">JavaScript</span>
+                        <span class="habilidad-badge">HTML/CSS</span>
+                        <span class="habilidad-badge">Node.js</span>
+                        <span class="habilidad-badge">Git</span>
+                    </div>
+                </div>
+
+                <div class="perfil-acciones">
+                    <button class="btn btn-accent">Descargar CV</button>
+                    <button class="btn btn-primary">Programar Entrevista</button>
+                    <button class="btn btn-secondary">Rechazar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="postulaciones.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Postulaciones | JobsYa</title>
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/todas_postulaciones.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="dashboard_empresa.html" class="logo">Jobs<span>Ya</span></a>
+            <nav class="navegacion">
+                <a href="dashboard_empresa.html">Dashboard</a>
+                <a href="todas_postulaciones.html" class="boton-empresa">Postulaciones</a>
+                <a href="publicar_oferta.html">Publicar Oferta</a>
+                <a href="#">Mi Cuenta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div>
+            <h1>Todas las Postulaciones</h1>
+            <p>Gestiona todas las postulaciones de tus ofertas activas</p>
+        </div>
+    </section>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="dashboard-contenedor">
+        <!-- ESTADÍSTICAS RÁPIDAS -->
+        <div class="estadisticas-grid">
+            <div class="estadistica-card">
+                <div class="icon">📊</div>
+                <div class="estadistica-numero">156</div>
+                <div class="estadistica-texto">Total Postulaciones</div>
+            </div>
+            <div class="estadistica-card">
+                <div class="icon">⏳</div>
+                <div class="estadistica-numero">42</div>
+                <div class="estadistica-texto">Por Revisar</div>
+            </div>
+            <div class="estadistica-card">
+                <div class="icon">✅</div>
+                <div class="estadistica-numero">24</div>
+                <div class="estadistica-texto">En Entrevista</div>
+            </div>
+            <div class="estadistica-card">
+                <div class="icon">🎉</div>
+                <div class="estadistica-numero">8</div>
+                <div class="estadistica-texto">Contratados</div>
+            </div>
+        </div>
+
+        <!-- FILTROS AVANZADOS -->
+        <div class="seccion-dashboard">
+            <div class="filtros-avanzados">
+                <div class="filtro-grupo">
+                    <label class="filtro-label">Oferta:</label>
+                    <select class="filtro-select">
+                        <option value="">Todas las ofertas</option>
+                        <option value="frontend">Desarrollador Frontend Senior</option>
+                        <option value="backend">Desarrollador Backend</option>
+                        <option value="fullstack">Full Stack Developer</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label class="filtro-label">Estado:</label>
+                    <select class="filtro-select">
+                        <option value="">Todos los estados</option>
+                        <option value="revision">Por Revisar</option>
+                        <option value="entrevista">En Entrevista</option>
+                        <option value="pruebas">Pruebas Técnicas</option>
+                        <option value="rechazado">Rechazado</option>
+                        <option value="contratado">Contratado</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label class="filtro-label">Fecha:</label>
+                    <select class="filtro-select">
+                        <option value="">Cualquier fecha</option>
+                        <option value="hoy">Hoy</option>
+                        <option value="semana">Esta semana</option>
+                        <option value="mes">Este mes</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label class="filtro-label">Experiencia:</label>
+                    <select class="filtro-select">
+                        <option value="">Cualquier nivel</option>
+                        <option value="sin-exp">Sin experiencia</option>
+                        <option value="junior">Junior (0-2 años)</option>
+                        <option value="semi-senior">Semi-Senior (2-5 años)</option>
+                        <option value="senior">Senior (+5 años)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filtros-acciones">
+                <button class="btn btn-secondary">Limpiar Filtros</button>
+                <button class="btn btn-primary">Aplicar Filtros</button>
+            </div>
+        </div>
+
+        <!-- LISTA/TABLA DE TODAS LAS POSTULACIONES -->
+        <div class="seccion-dashboard">
+            <div class="seccion-header">
+                <h2>Postulaciones Recientes</h2>
+                <div class="acciones-lote">
+                    <select class="accion-select">
+                        <option value="">Acciones en lote</option>
+                        <option value="mover-entrevista">Mover a entrevista</option>
+                        <option value="rechazar">Rechazar seleccionados</option>
+                        <option value="descargar-cv">Descargar CVs</option>
+                    </select>
+                    <button class="btn btn-accent">Aplicar</button>
+                </div>
+            </div>
+
+            <div class="tabla-contenedor">
+                <table class="tabla-postulaciones">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" class="checkbox-lote">
+                            </th>
+                            <th>Candidato</th>
+                            <th>Oferta</th>
+                            <th>Fecha Postulación</th>
+                            <th>Estado</th>
+                            <th>Experiencia</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Postulación 1 -->
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox-postulacion">
+                            </td>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">AG</div>
+                                <div>
+                                    <div class="candidato-nombre">Ana García</div>
+                                    <div class="candidato-email">ana.garcia@email.com</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="oferta-titulo">Desarrollador Frontend Senior</div>
+                                <div class="oferta-empresa">Tech Solutions Inc.</div>
+                            </td>
+                            <td>22 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-revision">Por Revisar</span>
+                            </td>
+                            <td>6 años</td>
+                            <td>
+                                <div class="acciones-rapidas">
+                                    <button class="btn-accion btn-ver"
+                                        onclick="abrirModal('modal-perfil-1')">Ver</button>
+                                    <button class="btn-accion btn-contactar">Contactar</button>
+                                    <button class="btn-accion btn-descargar">📥</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Postulación 2 -->
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox-postulacion">
+                            </td>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">RL</div>
+                                <div>
+                                    <div class="candidato-nombre">Roberto López</div>
+                                    <div class="candidato-email">roberto.lopez@email.com</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="oferta-titulo">Desarrollador Backend</div>
+                                <div class="oferta-empresa">Data Systems</div>
+                            </td>
+                            <td>21 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-entrevista">Entrevista</span>
+                            </td>
+                            <td>4 años</td>
+                            <td>
+                                <div class="acciones-rapidas">
+                                    <button class="btn-accion btn-ver"
+                                        onclick="abrirModal('modal-perfil-2')">Ver</button>
+                                    <button class="btn-accion btn-contactar">Contactar</button>
+                                    <button class="btn-accion btn-descargar">📥</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Postulación 3 -->
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox-postulacion">
+                            </td>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">SM</div>
+                                <div>
+                                    <div class="candidato-nombre">Sofía Mendoza</div>
+                                    <div class="candidato-email">sofia.mendoza@email.com</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="oferta-titulo">Full Stack Developer</div>
+                                <div class="oferta-empresa">Web Innovations</div>
+                            </td>
+                            <td>20 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-pruebas">Pruebas Técnicas</span>
+                            </td>
+                            <td>3 años</td>
+                            <td>
+                                <div class="acciones-rapidas">
+                                    <button class="btn-accion btn-ver"
+                                        onclick="abrirModal('modal-perfil-3')">Ver</button>
+                                    <button class="btn-accion btn-contactar">Contactar</button>
+                                    <button class="btn-accion btn-descargar">📥</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Postulación 4 -->
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox-postulacion">
+                            </td>
+                            <td class="candidato-info">
+                                <div class="candidato-avatar">DC</div>
+                                <div>
+                                    <div class="candidato-nombre">Diego Castillo</div>
+                                    <div class="candidato-email">diego.castillo@email.com</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="oferta-titulo">Desarrollador Frontend Senior</div>
+                                <div class="oferta-empresa">Tech Solutions Inc.</div>
+                            </td>
+                            <td>19 Nov 2024</td>
+                            <td>
+                                <span class="estado-badge estado-contratado">Contratado</span>
+                            </td>
+                            <td>8 años</td>
+                            <td>
+                                <div class="acciones-rapidas">
+                                    <button class="btn-accion btn-ver"
+                                        onclick="abrirModal('modal-perfil-4')">Ver</button>
+                                    <button class="btn-accion btn-contactar">Contactar</button>
+                                    <button class="btn-accion btn-descargar">📥</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PAGINACIÓN -->
+            <div class="paginacion">
+                <button class="btn-pagina">Anterior</button>
+                <span class="pagina-activa">1</span>
+                <button class="btn-pagina">2</button>
+                <button class="btn-pagina">3</button>
+                <button class="btn-pagina">4</button>
+                <button class="btn-pagina">Siguiente</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL PERFIL DEL CANDIDATO (Similar al anterior) -->
+    <div id="modal-perfil-1" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h2>Perfil del Candidato</h2>
+                <span class="modal-cerrar" onclick="cerrarModal('modal-perfil-1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="perfil-header">
+                    <div class="candidato-avatar-large">AG</div>
+                    <div class="perfil-info">
+                        <h3>Ana García</h3>
+                        <p>Desarrolladora Frontend Senior</p>
+                        <p class="perfil-contacto">ana.garcia@email.com • +54 11 2345-6789</p>
+                        <p class="perfil-oferta"><strong>Oferta:</strong> Desarrollador Frontend Senior - Tech Solutions
+                            Inc.</p>
+                    </div>
+                </div>
+
+                <div class="perfil-seccion">
+                    <h4>Resumen Profesional</h4>
+                    <p>Desarrolladora frontend con 6 años de experiencia especializada en React y ecosistema JavaScript.
+                        Apasionada por crear interfaces de usuario escalables y accesibles.</p>
+                </div>
+
+                <div class="perfil-seccion">
+                    <h4>Experiencia Laboral</h4>
+                    <div class="experiencia-item">
+                        <h5>Lead Frontend Developer - Digital Agency</h5>
+                        <span class="fecha">2021 - Presente</span>
+                        <p>Liderazgo de equipo de 4 desarrolladores frontend. Arquitectura de aplicaciones React.</p>
+                    </div>
+                    <div class="experiencia-item">
+                        <h5>Frontend Developer - E-commerce Company</h5>
+                        <span class="fecha">2019 - 2021</span>
+                        <p>Desarrollo de plataforma e-commerce con React y Redux.</p>
+                    </div>
+                </div>
+
+                <div class="perfil-seccion">
+                    <h4>Habilidades Técnicas</h4>
+                    <div class="habilidades-lista">
+                        <span class="habilidad-badge">React</span>
+                        <span class="habilidad-badge">TypeScript</span>
+                        <span class="habilidad-badge">JavaScript ES6+</span>
+                        <span class="habilidad-badge">HTML5/CSS3</span>
+                        <span class="habilidad-badge">SASS</span>
+                        <span class="habilidad-badge">Git</span>
+                        <span class="habilidad-badge">Webpack</span>
+                        <span class="habilidad-badge">Jest</span>
+                    </div>
+                </div>
+
+                <div class="perfil-acciones">
+                    <button class="btn btn-accent">📥 Descargar CV</button>
+                    <button class="btn btn-primary">📅 Programar Entrevista</button>
+                    <select class="estado-select">
+                        <option value="revision">Por Revisar</option>
+                        <option value="entrevista">En Entrevista</option>
+                        <option value="pruebas">Pruebas Técnicas</option>
+                        <option value="rechazado">Rechazar</option>
+                        <option value="contratado">Contratar</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="postulaciones.js"></script>
+    <script>
+        // Funciones específicas para todas las postulaciones
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selección en lote
+            const checkboxLote = document.querySelector('.checkbox-lote');
+            const checkboxesPostulacion = document.querySelectorAll('.checkbox-postulacion');
+
+            checkboxLote.addEventListener('change', function () {
+                checkboxesPostulacion.forEach(checkbox => {
+                    checkbox.checked = checkboxLote.checked;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

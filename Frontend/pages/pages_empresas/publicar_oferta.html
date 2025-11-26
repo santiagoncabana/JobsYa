@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Oferta - JobsYa</title>
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
+    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/publicar_oferta.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <a href="dashboard_empresa.html" class="logo">Jobs<span>Ya</span></a>
+            <nav class="navegacion">
+                <a href="dashboard_empresa.html">Dashboard</a>
+                <a href="todas_postulaciones.html">Postulaciones</a>
+                <a href="publicar_oferta.html" class="boton-empresa">Publicar Oferta</a>
+                <a href="#">Mi Cuenta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div>
+            <h1>Publicar Nueva Oferta</h1>
+            <p>Crea una oferta atractiva para encontrar el talento ideal</p>
+        </div>
+    </section>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="dashboard-contenedor">
+        <!-- MENSAJES -->
+        <div id="mensaje-contenedor" class="mensaje-contenedor"></div>
+
+        <!-- FORMULARIO -->
+        <div class="seccion-dashboard">
+            <div class="seccion-header">
+                <h2>Información de la Oferta</h2>
+            </div>
+
+            <form id="form-oferta" class="form-oferta">
+                <div class="form-grid">
+                    <!-- Columna Izquierda -->
+                    <div class="form-columna">
+                        <div class="form-grupo">
+                            <label for="titulo" class="form-label">Título del Puesto *</label>
+                            <input type="text" id="titulo" name="titulo" class="form-input" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="empresa" class="form-label">Empresa *</label>
+                            <input type="text" id="empresa" name="empresa" class="form-input" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="ubicacion" class="form-label">Ubicación *</label>
+                            <input type="text" id="ubicacion" name="ubicacion" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha -->
+                    <div class="form-columna">
+                        <div class="form-grupo">
+                            <label for="modalidad" class="form-label">Modalidad *</label>
+                            <select id="modalidad" name="modalidad" class="form-select" required>
+                                <option value="">Seleccionar</option>
+                                <option value="presencial">Presencial</option>
+                                <option value="remoto">Remoto</option>
+                                <option value="hibrido">Híbrido</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="tipo-contrato" class="form-label">Tipo de Contrato *</label>
+                            <select id="tipo-contrato" name="tipo_contrato" class="form-select" required>
+                                <option value="">Seleccionar</option>
+                                <option value="tiempo-completo">Tiempo Completo</option>
+                                <option value="medio-tiempo">Medio Tiempo</option>
+                                <option value="contratacion">Contratación</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="vacantes" class="form-label">Vacantes *</label>
+                            <input type="number" id="vacantes" name="vacantes" class="form-input" min="1" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campos full width -->
+                <div class="form-grupo-full">
+                    <label for="descripcion" class="form-label">Descripción *</label>
+                    <textarea id="descripcion" name="descripcion" class="form-textarea" rows="6" required></textarea>
+                </div>
+
+                <div class="form-grupo-full">
+                    <label for="requisitos" class="form-label">Requisitos *</label>
+                    <textarea id="requisitos" name="requisitos" class="form-textarea" rows="4" required></textarea>
+                </div>
+
+                <!-- Botones -->
+                <div class="form-acciones">
+                    <a href="dashboard_empresa.html" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-accent">Publicar Oferta</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="publicar_oferta.js"></script>
+</body>
+
+</html>
