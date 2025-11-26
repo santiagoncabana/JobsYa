@@ -4,114 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
+    <link rel="stylesheet" href="../../styles/styles-empresa/publicar_oferta.css">
     <title>Publicar Oferta - JobsYa</title>
-    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/DASHBOARD_EMPRESA.CSS">
-    <link rel="stylesheet" href="/JobsYa/Frontend/styles/styles-empresa/publicar_oferta.css">
 </head>
 
 <body>
-    <!-- NAVBAR -->
     <header class="cabecera">
         <div class="cabecera-contenido">
             <a href="dashboard_empresa.html" class="logo">Jobs<span>Ya</span></a>
             <nav class="navegacion">
                 <a href="dashboard_empresa.html">Dashboard</a>
+                <a href="publicar_oferta.html" class="boton-empresa activo">Publicar Oferta</a>
                 <a href="todas_postulaciones.html">Postulaciones</a>
-                <a href="publicar_oferta.html" class="boton-empresa">Publicar Oferta</a>
-                <a href="#">Mi Cuenta</a>
+                <a href="#" id="navMiCuenta">Mi Cuenta</a>
+                <button id="btnLogout" class="boton-logout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
-        <div>
+        <div class="hero-contenido">
             <h1>Publicar Nueva Oferta</h1>
             <p>Crea una oferta atractiva para encontrar el talento ideal</p>
         </div>
     </section>
 
-    <!-- CONTENEDOR PRINCIPAL -->
     <main class="dashboard-contenedor">
-        <!-- MENSAJES -->
         <div id="mensaje-contenedor" class="mensaje-contenedor"></div>
 
-        <!-- FORMULARIO -->
         <div class="seccion-dashboard">
             <div class="seccion-header">
                 <h2>Información de la Oferta</h2>
             </div>
 
-            <form id="form-oferta" class="form-oferta">
+            <form id="formPublicarOferta" class="form-oferta">
                 <div class="form-grid">
-                    <!-- Columna Izquierda -->
                     <div class="form-columna">
                         <div class="form-grupo">
-                            <label for="titulo" class="form-label">Título del Puesto *</label>
-                            <input type="text" id="titulo" name="titulo" class="form-input" required>
+                            <label for="nombre_puesto" class="form-label">Título del Puesto *</label>
+                            <input type="text" id="nombre_puesto" name="nombre_puesto" class="form-input"
+                                placeholder="Ej: Desarrollador Backend Python" required>
                         </div>
 
                         <div class="form-grupo">
-                            <label for="empresa" class="form-label">Empresa *</label>
-                            <input type="text" id="empresa" name="empresa" class="form-input" required>
+                            <label for="cuit_empresa" class="form-label">CUIT (Identificación Empresa)</label>
+                            <input type="text" id="cuit_empresa" class="form-input" value="[CUIT EMPRESA]" readonly>
+                            <p class="form-ayuda">Este CUIT será enviado con la oferta.</p>
                         </div>
 
                         <div class="form-grupo">
                             <label for="ubicacion" class="form-label">Ubicación *</label>
-                            <input type="text" id="ubicacion" name="ubicacion" class="form-input" required>
+                            <input type="text" id="ubicacion" name="ubicacion" class="form-input"
+                                placeholder="Ej: Buenos Aires, Remoto" required>
                         </div>
+
+                        <input type="hidden" id="rango_salarial_min" name="rango_salarial_min" value="0">
+                        <input type="hidden" id="rango_salarial_max" name="rango_salarial_max" value="0">
+
                     </div>
 
-                    <!-- Columna Derecha -->
                     <div class="form-columna">
                         <div class="form-grupo">
-                            <label for="modalidad" class="form-label">Modalidad *</label>
-                            <select id="modalidad" name="modalidad" class="form-select" required>
+                            <label for="jornada" class="form-label">Modalidad (Jornada) *</label>
+                            <select id="jornada" name="jornada" class="form-select" required>
                                 <option value="">Seleccionar</option>
-                                <option value="presencial">Presencial</option>
-                                <option value="remoto">Remoto</option>
-                                <option value="hibrido">Híbrido</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Remoto">Remoto</option>
+                                <option value="Hibrido">Híbrido</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
                             </select>
                         </div>
 
                         <div class="form-grupo">
-                            <label for="tipo-contrato" class="form-label">Tipo de Contrato *</label>
-                            <select id="tipo-contrato" name="tipo_contrato" class="form-select" required>
-                                <option value="">Seleccionar</option>
-                                <option value="tiempo-completo">Tiempo Completo</option>
-                                <option value="medio-tiempo">Medio Tiempo</option>
-                                <option value="contratacion">Contratación</option>
-                            </select>
+                            <label class="form-label">Empresa</label>
+                            <input type="text" id="empresa_display" class="form-input" value="[Nombre Empresa Logueada]"
+                                readonly>
                         </div>
 
-                        <div class="form-grupo">
-                            <label for="vacantes" class="form-label">Vacantes *</label>
-                            <input type="number" id="vacantes" name="vacantes" class="form-input" min="1" required>
-                        </div>
+
                     </div>
                 </div>
 
-                <!-- Campos full width -->
-                <div class="form-grupo-full">
-                    <label for="descripcion" class="form-label">Descripción *</label>
-                    <textarea id="descripcion" name="descripcion" class="form-textarea" rows="6" required></textarea>
+                <div class="form-grupo form-grupo-full">
+                    <label for="descripcion_puesto" class="form-label">Descripción del Puesto *</label>
+                    <textarea id="descripcion_puesto" name="descripcion_puesto" class="form-textarea" rows="6"
+                        placeholder="Describe las responsabilidades del puesto..." required></textarea>
                 </div>
 
-                <div class="form-grupo-full">
-                    <label for="requisitos" class="form-label">Requisitos *</label>
-                    <textarea id="requisitos" name="requisitos" class="form-textarea" rows="4" required></textarea>
+                <div class="form-grupo form-grupo-full">
+                    <label for="requisitos" class="form-label">Requisitos (Cada línea será un ítem) *</label>
+                    <textarea id="requisitos" name="requisitos" class="form-textarea" rows="4"
+                        placeholder="Ej: 3 años de experiencia en React. Dominio de Node.js..." required></textarea>
                 </div>
 
-                <!-- Botones -->
+                <div class="form-grupo form-grupo-full">
+                    <label for="beneficios" class="form-label">Beneficios (Cada línea será un ítem)</label>
+                    <textarea id="beneficios" name="beneficios" class="form-textarea" rows="3"
+                        placeholder="Ej: Home Office flexible. Bono anual por desempeño."></textarea>
+                </div>
+
                 <div class="form-acciones">
                     <a href="dashboard_empresa.html" class="btn btn-secondary">Cancelar</a>
-                    <button type="submit" class="btn btn-accent">Publicar Oferta</button>
+                    <button type="submit" class="btn btn-accent" id="btnPublicar">Publicar Oferta</button>
                 </div>
             </form>
         </div>
     </main>
 
-    <script src="publicar_oferta.js"></script>
+    <script src="../../scripts/empresa/publicar_oferta.js"></script>
 </body>
 
 </html>

@@ -1,122 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Frontend/styles/styles-empresa/styles_register.css">
-    <title>Register Empresa - JobsYa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/styles-empresa/styles_register.css">
+    <title>Registro Empresa - JobsYa</title>
 </head>
 
 <body>
     <header class="cabecera">
         <div class="cabecera-contenido">
             <a href="../home.html" class="logo">Jobs<span>Ya</span></a>
-            <a href="./login_empresa.html" class="enlace-login">¿Ya tenés cuenta? Ingresá</a>
+            <a href="./login_empresa.html" class="enlace-login">¿Ya tienes cuenta? Inicia Sesión</a>
         </div>
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL -->
     <main class="contenedor-registro">
         <div class="registro-caja">
-            <!-- ICONO -->
             <div class="registro-icono">
                 <i class="fas fa-building"></i>
             </div>
 
-            <h1>Registrá tu empresa</h1>
-            <p class="registro-subtitulo">Empezá a publicar ofertas y encontrá el mejor talento</p>
+            <h1>Registrá tu Empresa</h1>
+            <p class="registro-subtitulo">Comenzá a publicar ofertas y encontrar talento</p>
 
-            <!-- BENEFICIOS MINI -->
             <div class="beneficios-mini">
                 <div class="beneficio-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Publicación gratis</span>
+                    Fácil de usar
                 </div>
                 <div class="beneficio-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>+1M candidatos</span>
-                </div>
-                <div class="beneficio-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Fácil y rápido</span>
+                    Acceso a miles de candidatos
                 </div>
             </div>
 
-            <form>
-                <!-- NOMBRE EMPRESA -->
+            <form id="formRegistroEmpresa">
                 <div class="campo-grupo">
-                    <label for="nombre">Nombre de la empresa</label>
+                    <label for="nombre">Nombre de la Empresa</label>
                     <div class="campo-icono">
-                        <input type="text" id="nombre" class="campo-input" placeholder="Ej: Mi Empresa S.A.">
                         <i class="fas fa-building"></i>
+                        <input type="text" id="nombre" class="campo-input" placeholder="Ej: Tech Solutions S.A."
+                            required>
                     </div>
                 </div>
 
-                <!-- CUIT -->
                 <div class="campo-grupo">
-                    <label for="cuit">CUIT</label>
+                    <label for="cuit">CUIT/Identificación Fiscal</label>
                     <div class="campo-icono">
-                        <input type="text" id="cuit" class="campo-input" placeholder="Ej: 30-12345678-9">
                         <i class="fas fa-id-card"></i>
+                        <input type="text" id="cuit" class="campo-input" placeholder="Ej: 3071234567-8" required>
                     </div>
-                    <p class="campo-ayuda">
-                        <i class="fas fa-info-circle"></i>
-                        Ingresá el CUIT con guiones
+                    <div class="error-mensaje"></div>
+                    <p class="campo-ayuda"><i class="fas fa-info-circle"></i> Usaremos esto para verificar tu empresa.
                     </p>
                 </div>
 
-                <!-- EMAIL -->
                 <div class="campo-grupo">
-                    <label for="email">Correo electrónico corporativo</label>
+                    <label for="email">Correo electrónico</label>
                     <div class="campo-icono">
-                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com">
                         <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com"
+                            required>
                     </div>
+                    <div class="error-mensaje"></div>
                 </div>
 
-                <!-- CONTRASEÑA -->
                 <div class="campo-grupo">
                     <label for="contrasena">Contraseña</label>
                     <div class="campo-icono">
-                        <input type="password" id="contrasena" class="campo-input" placeholder="Mínimo 8 caracteres">
                         <i class="fas fa-lock"></i>
+                        <input type="password" id="contrasena" class="campo-input"
+                            placeholder="Crea una contraseña segura" required>
+                        <button type="button" class="toggle-contrasena">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
                     </div>
+                    <div class="error-mensaje"></div>
                 </div>
 
-                <!-- TERMINOS -->
                 <div class="campo-checkbox">
-                    <input type="checkbox" id="terminos">
-                    <label for="terminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de
-                            Privacidad</a> para empresas</label>
+                    <input type="checkbox" id="aceptoTerminos" required>
+                    <label for="aceptoTerminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a
+                            href="#">Política de Privacidad</a>.</label>
                 </div>
 
-                <!-- BOTON REGISTRO -->
-                <button type="submit" class="boton-registro">
-                    <i class="fas fa-rocket"></i>
-                    Crear cuenta de empresa
+                <button type="submit" class="boton-registro" id="btnRegistro">
+                    <i class="fas fa-briefcase"></i>
+                    Crear Cuenta Empresarial
                 </button>
             </form>
 
-            <!-- SEPARADOR -->
-            <div class="separador">
-                <span>o</span>
-            </div>
-
-            <!-- ENLACE LOGIN -->
             <p class="enlace-cuenta">
-                ¿Ya tenés cuenta empresa? <a href="#">Iniciá sesión</a>
+                ¿Ya tienes una cuenta? <a href="./login_empresa.html">Iniciar sesión</a>
             </p>
-
-            <!-- ENLACE CANDIDATOS -->
-            <div class="enlace-candidatos">
-                <a href="#">
-                    <i class="fas fa-user"></i>
-                    ¿Buscás empleo? Registrate como candidato
-                </a>
-            </div>
         </div>
     </main>
+
+    <div id="notificacion-contenedor" style="position: fixed; top: 10px; right: 10px; z-index: 1000; max-width: 300px;">
+    </div>
+    <script src="../../scripts/empresa/register.js"></script>
 </body>
 
 </html>

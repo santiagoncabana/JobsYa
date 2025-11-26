@@ -1,95 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/Frontend/styles/styles-empresa/styles_login.css">
     <title>Login Empresa - JobsYa</title>
 </head>
 
 <body>
-    <!-- CABECERA -->
     <header class="cabecera">
         <div class="cabecera-contenido">
             <a href="../home.html" class="logo">Jobs<span>Ya</span></a>
-            <a href="./register_empresa.html" class="enlace-registro">¿No tenés cuenta? Registrá tu empresa</a>
+            <a href="./register_empresa.html" class="enlace-login">¿No tenés cuenta? Registrá tu empresa</a>
         </div>
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL -->
-    <main class="contenedor-login">
-        <div class="login-caja">
-            <!-- ICONO -->
-            <div class="login-icono">
+    <main class="contenedor-registro">
+        <div class="registro-caja">
+            <div class="registro-icono">
                 <i class="fas fa-building"></i>
             </div>
 
-            <!-- BADGE -->
             <div class="badge-empresas">
                 <i class="fas fa-briefcase" style="margin-right: 6px;"></i> Portal Empresas
             </div>
 
             <h1>Acceso Empresas</h1>
-            <p class="login-subtitulo">Ingresá para gestionar tus ofertas y candidatos</p>
+            <p class="registro-subtitulo">Ingresá para gestionar tus ofertas y candidatos</p>
 
-            <form>
-                <!-- EMAIL -->
+            <form id="formLoginEmpresa">
                 <div class="campo-grupo">
                     <label for="email">Correo electrónico</label>
                     <div class="campo-icono">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com">
+                        <input type="email" id="email" class="campo-input" placeholder="contacto@miempresa.com"
+                            required>
                     </div>
+                    <div class="error-mensaje"></div>
                 </div>
 
-                <!-- CONTRASEÑA -->
                 <div class="campo-grupo">
                     <label for="contrasena">Contraseña</label>
                     <div class="campo-icono">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="contrasena" class="campo-input" placeholder="Tu contraseña">
+                        <input type="password" id="contrasena" class="campo-input" placeholder="Tu contraseña" required>
                         <button type="button" class="toggle-contrasena">
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-eye-slash"></i>
                         </button>
                     </div>
+                    <div class="error-mensaje"></div>
                 </div>
 
-                <!-- OPCIONES -->
                 <div class="opciones-login">
                     <label class="recordarme">
-                        <input type="checkbox">
+                        <input type="checkbox" id="recordarme">
                         <span>Recordarme</span>
                     </label>
                     <a href="#" class="olvido-contrasena">¿Olvidaste tu contraseña?</a>
                 </div>
 
-                <!-- BOTON LOGIN -->
-                <button type="submit" class="boton-login">
+                <button type="submit" class="boton-registro" id="btnLogin">
                     <i class="fas fa-sign-in-alt"></i>
                     Ingresar al panel
                 </button>
             </form>
 
-            <!-- SEPARADOR -->
-            <div class="separador">
-                <span>o</span>
-            </div>
-
-            <!-- ENLACE REGISTRO -->
-            <p class="enlace-crear-cuenta">
+            <p class="enlace-cuenta" style="margin-top: 20px;">
                 ¿No tenés cuenta empresa? <a href="./register_empresa.html">Registrate gratis</a>
             </p>
-
-            <!-- ENLACE CANDIDATOS -->
-            <div class="enlace-candidatos">
-                <a href="../pages_candidatos/register_candidato.html">
-                    <i class="fas fa-user"></i>
-                    ¿Buscás empleo? Ingresá como candidato
-                </a>
-            </div>
         </div>
     </main>
+
+    <div id="notificacion-contenedor" style="position: fixed; top: 10px; right: 10px; z-index: 1000; max-width: 300px;">
+    </div>
+    <script src="../../scripts/empresa/login.js"></script>
 </body>
 
 </html>

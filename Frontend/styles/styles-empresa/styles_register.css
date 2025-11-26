@@ -1,3 +1,5 @@
+/* styles_login.css */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    /* Fondo Naranja */
     background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     display: flex;
     flex-direction: column;
@@ -50,6 +53,7 @@ body {
 }
 
 /* CONTENEDOR PRINCIPAL */
+/* Nota: Se usa .contenedor-registro para la página de registro */
 .contenedor-registro {
     flex: 1;
     display: flex;
@@ -71,6 +75,7 @@ body {
 .registro-icono {
     width: 80px;
     height: 80px;
+    /* Fondo Naranja/Rojo */
     background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     border-radius: 50%;
     display: flex;
@@ -157,6 +162,7 @@ body {
 }
 
 .campo-input:focus {
+    /* Naranja al enfocar */
     border-color: #f97316;
     box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
@@ -167,6 +173,21 @@ body {
 
 .campo-input::placeholder {
     color: #9ca3af;
+}
+
+/* ESTILO PARA ERRORES DE JS */
+.campo-input.error {
+    border-color: #ef4444;
+    /* Rojo para error */
+}
+
+.error-mensaje {
+    color: #ef4444;
+    /* Rojo para error */
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+    /* Se muestra con JS */
 }
 
 /* AYUDA CUIT */
@@ -195,6 +216,7 @@ body {
     width: 18px;
     height: 18px;
     margin-top: 2px;
+    /* Naranja para el checkbox */
     accent-color: #f97316;
     cursor: pointer;
 }
@@ -207,6 +229,7 @@ body {
 }
 
 .campo-checkbox a {
+    /* Naranja para el enlace */
     color: #f97316;
     text-decoration: none;
 }
@@ -219,6 +242,7 @@ body {
 .boton-registro {
     width: 100%;
     padding: 16px;
+    /* Azul para el botón principal */
     background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     color: #fff;
     border: none;
@@ -271,6 +295,7 @@ body {
 }
 
 .enlace-cuenta a {
+    /* Naranja para el enlace */
     color: #f97316;
     text-decoration: none;
     font-weight: 600;
@@ -289,6 +314,7 @@ body {
 }
 
 .enlace-candidatos a {
+    /* Azul para el enlace */
     color: #2563eb;
     text-decoration: none;
     font-size: 0.9rem;

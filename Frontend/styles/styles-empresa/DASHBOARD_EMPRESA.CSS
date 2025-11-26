@@ -261,3 +261,44 @@ body {
         margin-top: 10px;
     }
 }
+
+
+
+
+
+/* AJUSTE PARA EL BOTÓN DE CERRAR SESIÓN (Logout) */
+.boton-logout {
+    /* Base: Transparente y discreto en la navbar */
+    background: none;
+    border: none;
+    color: #555;
+    /* Gris suave del texto de navegación */
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.boton-logout:hover {
+    /* Efecto al pasar el ratón: color rojo para indicar una acción destructiva (cerrar sesión) */
+    color: white;
+    background-color: #ef4444;
+    /* Rojo suave */
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+.boton-logout i {
+    font-size: 0.9rem;
+}
+
+/* OPCIONAL: Si el botón de Publicar Oferta usa el mismo color */
+.navegacion a.boton-empresa {
+    background: #f97316;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
